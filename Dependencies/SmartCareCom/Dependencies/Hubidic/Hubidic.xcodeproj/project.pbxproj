@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		58CD2B5124D3ED9F00072E2A /* Hubidic.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD2B4F24D3ED9F00072E2A /* Hubidic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58CD2B6224D3F26700072E2A /* Hubidic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD2B6124D3F26700072E2A /* Hubidic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		58CD2B4C24D3ED9F00072E2A /* Hubidic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hubidic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CD2B4F24D3ED9F00072E2A /* Hubidic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hubidic.h; sourceTree = "<group>"; };
 		58CD2B5024D3ED9F00072E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58CD2B6124D3F26700072E2A /* Hubidic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hubidic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				58CD2B4F24D3ED9F00072E2A /* Hubidic.h */,
+				58CD2B6124D3F26700072E2A /* Hubidic.swift */,
 				58CD2B5024D3ED9F00072E2A /* Info.plist */,
 			);
 			path = Hubidic;
@@ -95,6 +98,7 @@
 				TargetAttributes = {
 					58CD2B4B24D3ED9F00072E2A = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -131,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58CD2B6224D3F26700072E2A /* Hubidic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +265,7 @@
 		58CD2B5524D3ED9F00072E2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2KZW859V78;
@@ -277,6 +283,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmate.framework.Hubidic;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -285,6 +292,7 @@
 		58CD2B5624D3ED9F00072E2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2KZW859V78;
