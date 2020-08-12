@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5854099224E28A0B00DFC6D7 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5854099124E28A0B00DFC6D7 /* ScanViewController.swift */; };
+		58B5602524D79CDE006FA022 /* ManageBleDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */; };
+		58B5602A24D7AADA006FA022 /* SelectBleDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */; };
 		58CD2AE524D3EBE300072E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD2AE424D3EBE300072E2A /* AppDelegate.swift */; };
-		58CD2AE724D3EBE300072E2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD2AE624D3EBE300072E2A /* SceneDelegate.swift */; };
 		58CD2AE924D3EBE300072E2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD2AE824D3EBE300072E2A /* ViewController.swift */; };
 		58CD2AEC24D3EBE300072E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58CD2AEA24D3EBE300072E2A /* Main.storyboard */; };
 		58CD2AEE24D3EBE500072E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58CD2AED24D3EBE500072E2A /* Assets.xcassets */; };
@@ -42,9 +44,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5854099124E28A0B00DFC6D7 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBleDeviceViewController.swift; sourceTree = "<group>"; };
+		58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBleDeviceViewController.swift; sourceTree = "<group>"; };
 		58CD2AE124D3EBE300072E2A /* SmartCareSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCareSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CD2AE424D3EBE300072E2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		58CD2AE624D3EBE300072E2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		58CD2AE824D3EBE300072E2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		58CD2AEB24D3EBE300072E2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58CD2AED24D3EBE500072E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,9 +91,11 @@
 			isa = PBXGroup;
 			children = (
 				58CD2AE424D3EBE300072E2A /* AppDelegate.swift */,
-				58CD2AE624D3EBE300072E2A /* SceneDelegate.swift */,
 				58CD2AE824D3EBE300072E2A /* ViewController.swift */,
 				58CD2AEA24D3EBE300072E2A /* Main.storyboard */,
+				5854099124E28A0B00DFC6D7 /* ScanViewController.swift */,
+				58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */,
+				58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */,
 				58CD2AED24D3EBE500072E2A /* Assets.xcassets */,
 				58CD2AEF24D3EBE500072E2A /* LaunchScreen.storyboard */,
 				58CD2AF224D3EBE500072E2A /* Info.plist */,
@@ -209,8 +215,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				58CD2AE924D3EBE300072E2A /* ViewController.swift in Sources */,
+				58B5602524D79CDE006FA022 /* ManageBleDeviceViewController.swift in Sources */,
 				58CD2AE524D3EBE300072E2A /* AppDelegate.swift in Sources */,
-				58CD2AE724D3EBE300072E2A /* SceneDelegate.swift in Sources */,
+				58B5602A24D7AADA006FA022 /* SelectBleDeviceViewController.swift in Sources */,
+				5854099224E28A0B00DFC6D7 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

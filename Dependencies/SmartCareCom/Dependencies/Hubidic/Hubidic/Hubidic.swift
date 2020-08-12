@@ -9,164 +9,62 @@
 import Foundation
 import CoreBluetooth
 
-struct HubidicUUID {
-    static let deviceName = "1585B"
-    static let serviceUUID = "0x7889"
-//    static let HBP1700BT_Peripheral_Name = "1585B"
-    static let HBP1700BT_Peripheral_Name_Pairing = "11585B" // 앞자리 숫자가 플래그임 0:normal, 1:pairing
-    static let HBP1700BT_Peripheral_Name_Normal = "01585B"
-    static let BloodPressure_Service = "7889"
-    static let DateTime_Char = "2A08"
-    static let BloodPressureMeasurement_Char = "2A35"
-    static let BloodPressureWrite_Char = "8A81"
-    static let BloodPressureIndicateInfo_Char = "8A82"
-    static let BloodPressureIndicateMeasure_Char = "8A91"
-    static let DeviceInformation_Service = "180A"
-    static let SerialNumber_Char = "2A25"
-    static let FirmwareRevisionString_Char = "2A26"
-    static let HardwareRevisionString_Char = "2A27"
-    static let SoftwareRevisionString_Char = "2A28"
-    static let ManufacturerNameString_Char = "2A29"
+public class Hubidic: NSObject {
     
-}
-
-struct HubidicCommand {
-    static let password:UInt8 = 0xA0
-    static let accountId:UInt8 = 0x21
-    static let randomNumber:UInt8 = 0xA1
-    static let verification:UInt8 = 0x20
-    static let setTime:UInt8 = 0x02
-    static let userName:UInt8 = 0x83
-    static let connectUser:UInt8 = 0x03
-    static let timeOffset:UInt8 = 0x02
-    static let enableDisconnection:UInt8 = 0x22
+//    public static let shared = Hubidic()
+    private let manager:CBCentralManager = CBCentralManager()
+    private var activePeripheral:CBPeripheral?
+    private var AppToDeviceCharacteristic:CBCharacteristic?
+    private var DeviceToAppCharacteristic:CBCharacteristic?
     
-}
-
-enum HubidicState {
-    
-    case scanning
-    case scanFinished
-    case connected
-    case connecting
-    case connectFailed
-    case disconecting
-    case disconected
-    
-}
-
-enum HubidicUserNo{
-    case userA
-    case userB
-    
-    var value:[UInt8] {
-        switch self {
-        case .userA:
-            return [0xa0,0xa0,0xa0,0xa0]
-        case .userB:
-            return [0xb0,0xb0,0xb0,0xb0]
-            
-        }
-    }
-    func getValueReversed() -> [UInt8] {
-        return self.value.reversed()
-        
-    }
-}
-
-struct HubidicDevice {
-    var manufacture:String?
-    var firmwareVersion:String?
-    var hardwareVersion:String?
-    var softwareVersion:String?
-    var serialNumber:String?
-    var password:String?
-    var userid:String?
-    var randomNum:String?
-//    var
-    
-}
-struct BloodPressData{
-    let measureDt:Date
-    let max:Int
-    let min:Int
-    let hr:Int
-}
-
-protocol BloodPressDataSyncDelegate:class {
-    func sync(dataList:[BloodPressData])
-}
-
-class BloodPressDataManager{
-    weak var delegate:BloodPressDataSyncDelegate?
-    var bpDataList:[BloodPressData] = []
-    var deviceInfo:HubidicDevice //BloodPressDataManager
-    var timer:Timer?
-    
-    init(deviceInfo:HubidicDevice) {
-        self.deviceInfo = deviceInfo
-    }
-    func intoArray(data:BloodPressData){
-        timerOn()
-        bpDataList.append(data)
-    }
-    
-    @objc private func sync(){
-        print("✅ data sync")
-        print(bpDataList)
-        delegate?.sync(dataList: bpDataList)
-    }
-    
-    func timerOn(){
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(sync), userInfo: nil, repeats: false)
-    }
-    
-}
-
-class HubidicBleManager{
-    
-
-    
-}
-protocol HubidicDelegate:class {
-    func updated(state:HubidicState, data:String?, error:Error?)
-//    func Hubidic(scannedDeviceList:[CBPeripheral])
-}
-class Hubidic: NSObject {
-    
-    static let shared = Hubidic()
-    let manager:CBCentralManager = CBCentralManager()
-    var activePeripheral:CBPeripheral?
-    var AppToDeviceCharacteristic:CBCharacteristic?
-    var DeviceToAppCharacteristic:CBCharacteristic?
-    
-    var scannedDeviceList: [CBPeripheral] = []
-    var connectUserFlag:Bool = false
-    var selectedUserType:HubidicUserNo?
-    var isPairingMode:Bool = false
+    var scannedDeviceList: [[PeripheralDictionaryKey:Any]] = []
+    private var connectUserFlag:Bool = false
+    private var selectedUserType:HubidicUserNo?
+    private var isPairingMode:Bool = false
     var state:HubidicState = .disconected
     
     weak var delegate:HubidicDelegate?
     
     var timer:Timer?
     let bpDataManager:BloodPressDataManager = BloodPressDataManager(deviceInfo: HubidicDevice())
-    func initManager(user:HubidicUserNo?){
-//        manager =
+    
+    public init(user:HubidicUserNo?) {
+        super.init()
         selectedUserType = user
         manager.delegate = self
         
     }
+//    public func initManager(user:HubidicUserNo?){
+//        manager =
+//        selectedUserType = user
+//        manager.delegate = self
+        
+//    }
     
     public func scanForDevice(){
+        isPairingMode = true
         state = .scanning
-        manager.scanForPeripherals(withServices: [CBUUID(string: HubidicUUID.serviceUUID)])
+        manager.scanForPeripherals(withServices: [CBUUID(string: HubidicUUID.serviceUUID)],
+                                   options: [CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: true)]) // RSSI read
+        
+        
 //        delegate?.Hubidic(updatedState: state, data: nil, error: nil)
     }
     
-    public func scanForKnownDevice(){
+    public func scanForKnownDevice(completion: ((HubidicError) -> Void)? = nil){
+        
+        guard let uuidString = bpDataManager.deviceInfo.uuid else {
+            
+//            completion(HubidicError.noDeviceInfo)
+            return
+        }
+        guard let uuid = UUID(uuidString: uuidString) else {
+//            completion(HubidicError.noDeviceInfo)
+            return
+        }
+        isPairingMode = false
         state = .scanning
-        manager.retrieveConnectedPeripherals(withServices: [CBUUID(string: HubidicUUID.serviceUUID)])
+        manager.retrievePeripherals(withIdentifiers: [uuid])
     }
     
     func scanStop(){
@@ -184,21 +82,22 @@ class Hubidic: NSObject {
         
     }
     
-    func sendData(data:Data, characteristic:CBCharacteristic){
+    private func sendData(data:Data, characteristic:CBCharacteristic){
         
         activePeripheral?.writeValue(data, for: characteristic, type: .withResponse)
     }
     
-    func sendToDevice(with data:Data, characteristic: CBCharacteristic){
+    private func sendToDevice(with data:Data, characteristic: CBCharacteristic){
             
         
         activePeripheral?.writeValue(data, for: characteristic, type: .withResponse)
         
     }
         
-    func sendAccountID(with characteristic: CBCharacteristic){
-        print("set Account ID")
+    private func sendAccountID(with characteristic: CBCharacteristic){
+        HubidicDebugManager.log("sendAccountID")
 
+        
         guard let value = selectedUserType?.getValueReversed() else {
             
             // usertype이 nil 즉, all일 때
@@ -216,7 +115,7 @@ class Hubidic: NSObject {
         sendData(data: data, characteristic: characteristic)
     }
     
-    func setTime(){
+    private func setTime(){
         
         // HuBDIC에서 정의한 기준시간 : 2010/01/01 00:00:00
         let dateformatter = DateFormatter()
@@ -244,45 +143,45 @@ class Hubidic: NSObject {
         sendToDevice(with: resultOffset, characteristic: AppToDeviceCharacteristic)
         
         print("App >>> \(String(format: "%02x %02x %02x %02x %02x", resultOffset[0],resultOffset[1],resultOffset[2],resultOffset[3],resultOffset[4]))")
-        print("🟩 set Time")
+        HubidicDebugManager.log("set Time")
         
     }
-    func enableDisconnect(){
+    private func enableDisconnect(){
         
         let disconnect:[UInt8] = [HubidicCommand.enableDisconnection]
         let disconnectData = Data(disconnect)
         guard let AppToDeviceCharacteristic = AppToDeviceCharacteristic else { return }
         sendToDevice(with: disconnectData, characteristic: AppToDeviceCharacteristic)
-        print("🟩 enableDisconnect")
+        HubidicDebugManager.log("enableDisconnect")
     }
     
-    func readValue(serviceUUIDString:String, characteristicUUID:String, peripheral:CBPeripheral){
+    private func readValue(serviceUUIDString:String, characteristicUUID:String, peripheral:CBPeripheral){
         guard let s = findServiceFromUUID(serviceUUIDString: serviceUUIDString, peripheral: peripheral) else {
-            print("❌ error findServiceFromUUID")
+            HubidicDebugManager.log("error findServiceFromUUID", type: .error)
             return
             
         }
         guard let c = findCharacteristicFromUUID(characteristicUUID: characteristicUUID, service: s) else {
-            print("❌ error findCharacteristicFromUUID")
+            HubidicDebugManager.log("error findCharacteristicFromUUID", type: .error)
             return
             
         }
         peripheral.readValue(for: c)
     }
     
-    func findServiceFromUUID(serviceUUIDString:String, peripheral:CBPeripheral) -> CBService? {
+    private func findServiceFromUUID(serviceUUIDString:String, peripheral:CBPeripheral) -> CBService? {
         guard let services = peripheral.services else { return nil }
         for service in services {
             if let name = peripheral.name, name.contains(HubidicUUID.deviceName) {
-                return service
-            } else if service.uuid.uuidString == serviceUUIDString {
-                return service
+                if service.uuid.uuidString == serviceUUIDString {
+                    return service
+                }
             }
         }
         return nil
     }
     
-    func findCharacteristicFromUUID(characteristicUUID:String, service:CBService) ->CBCharacteristic?{
+    private func findCharacteristicFromUUID(characteristicUUID:String, service:CBService) ->CBCharacteristic?{
         guard let characteristics = service.characteristics else { return nil }
         for characteristic in characteristics {
             if characteristic.uuid.uuidString == characteristicUUID {
@@ -293,21 +192,33 @@ class Hubidic: NSObject {
         
     }
     
-    func readDeviceInformation(){
+    private func readDeviceInformation(){
         
         guard let p = self.activePeripheral else { return}
-        readValue(serviceUUIDString: HubidicUUID.serviceUUID, characteristicUUID: HubidicUUID.SerialNumber_Char, peripheral: p)
-        readValue(serviceUUIDString: HubidicUUID.serviceUUID, characteristicUUID: HubidicUUID.FirmwareRevisionString_Char, peripheral: p)
-        readValue(serviceUUIDString: HubidicUUID.serviceUUID, characteristicUUID: HubidicUUID.HardwareRevisionString_Char, peripheral: p)
-        readValue(serviceUUIDString: HubidicUUID.serviceUUID, characteristicUUID: HubidicUUID.SoftwareRevisionString_Char, peripheral: p)
-        readValue(serviceUUIDString: HubidicUUID.serviceUUID, characteristicUUID: HubidicUUID.ManufacturerNameString_Char, peripheral: p)
+        readValue(serviceUUIDString: HubidicUUID.DeviceInformation_Service,
+                  characteristicUUID: HubidicUUID.SerialNumber_Char,
+                  peripheral: p)
+        readValue(serviceUUIDString: HubidicUUID.DeviceInformation_Service,
+                  characteristicUUID: HubidicUUID.FirmwareRevisionString_Char,
+                  peripheral: p)
+        readValue(serviceUUIDString: HubidicUUID.DeviceInformation_Service,
+                  characteristicUUID: HubidicUUID.HardwareRevisionString_Char,
+                  peripheral: p)
+        readValue(serviceUUIDString: HubidicUUID.DeviceInformation_Service,
+                  characteristicUUID: HubidicUUID.SoftwareRevisionString_Char,
+                  peripheral: p)
+        readValue(serviceUUIDString: HubidicUUID.DeviceInformation_Service,
+                  characteristicUUID: HubidicUUID.ManufacturerNameString_Char,
+                  peripheral: p)
+        HubidicDebugManager.log("readDeviceInformation ok")
+        
         
     }
 }
 extension Hubidic: CBPeripheralDelegate {
     
     //#1
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         print("didDiscoverServices \(error.debugDescription)")
         guard let services = peripheral.services else { return }
         
@@ -320,7 +231,7 @@ extension Hubidic: CBPeripheralDelegate {
     // noti값이 잘 변경되었는지 확인하는 델리게이트.
     // 잘 변경 안되었으면 error 가 나올 것임.
     // 여기서 정보를 던져야 하는 특성(characteristic)을 저장한다.
-    func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         print("didUpdateNotificationStateFor \(characteristic) ")
         
         if characteristic.uuid.uuidString == HubidicUUID.BloodPressureWrite_Char {
@@ -334,7 +245,7 @@ extension Hubidic: CBPeripheralDelegate {
         
     }
     //#2
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         
         if let error = error {
             
@@ -342,16 +253,11 @@ extension Hubidic: CBPeripheralDelegate {
             guard let characteristics = service.characteristics else { return }
             for characteristic in characteristics {
                 let chartUUID = characteristic.uuid
-                print("didDiscoverCharacteristicsFor : \(chartUUID.uuidString)")
                 
                 switch chartUUID.uuidString {
                 
                 case HubidicUUID.BloodPressureWrite_Char:
-                    peripheral.setNotifyValue(true, for: characteristic) // 특성에 대한 구독하기.
-//                    // notify값이 true로 하면, 데이터가 변경되면 central쪽으로 데이터를 전송한다.
-//
-                    
-                
+                    peripheral.setNotifyValue(true, for: characteristic)
                 case HubidicUUID.BloodPressureIndicateInfo_Char:
                     peripheral.setNotifyValue(true, for: characteristic)
                 
@@ -359,6 +265,7 @@ extension Hubidic: CBPeripheralDelegate {
                     peripheral.setNotifyValue(true, for: characteristic)
                 
                 default:
+                    
                     peripheral.discoverDescriptors(for: characteristic)
                     
                 }
@@ -372,45 +279,22 @@ extension Hubidic: CBPeripheralDelegate {
     }
     //peripheral found descriptors for a characteristic.
     //주변장치
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
-        print("didDiscoverDescriptorsFor characteristic\(characteristic.uuid.uuidString)")
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
         if let err = error {
             
         } else {
             
-//            guard let data = characteristic.value else { return }
-//            print("didDiscoverDescriptorsFor : \(characteristic.uuid.uuidString) \(data)")
-//            switch characteristic.uuid.uuidString {
-//            case HubidicUUID.ManufacturerNameString_Char:
-//
-//                activePeripheral?.readValue(for: characteristic)
-//
-//            case HubidicUUID.FirmwareRevisionString_Char:
-//                activePeripheral?.readValue(for: characteristic)
-//
-//            case HubidicUUID.SoftwareRevisionString_Char:
-//                activePeripheral?.readValue(for: characteristic)
-//
-//            case HubidicUUID.SerialNumber_Char:
-//                activePeripheral?.readValue(for: characteristic)
-//            case HubidicUUID.HardwareRevisionString_Char:
-//                activePeripheral?.readValue(for: characteristic)
-//            default:
-//                break
-//            }
-            
-            
             if let s = peripheral.services?.last,
                 let c = s.characteristics?.last,
                 c.uuid.uuidString == characteristic.uuid.uuidString {
-                readDeviceInformation()
+                if isPairingMode {
+                    readDeviceInformation()
+                }
 
             }
         }
     }
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("✅ didUpdateValueFor \(characteristic)")
-        print(activePeripheral)
+    public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             
         } else {
@@ -423,29 +307,25 @@ extension Hubidic: CBPeripheralDelegate {
                 case HubidicUUID.ManufacturerNameString_Char:
                     
                     let manufacturerName = String(data: data, encoding: .utf8)
-                    print("ManufacturerName : \(manufacturerName)")
+                    
                     bpDataManager.deviceInfo.manufacture = manufacturerName
                 case HubidicUUID.FirmwareRevisionString_Char:
                     
                     let firmwareVersion = String(data: data, encoding: .utf8)
-                    print("firmwareVersion : \(firmwareVersion)")
                     bpDataManager.deviceInfo.firmwareVersion = firmwareVersion
                     
                 case HubidicUUID.SoftwareRevisionString_Char:
                     
                     let softwareVersion = String(data: data, encoding: .utf8)
-                    print("softwareVersion : \(softwareVersion)")
                     bpDataManager.deviceInfo.softwareVersion = softwareVersion
                     
                 case HubidicUUID.SerialNumber_Char:
                     
                     let serialNumber = String(data: data, encoding: .utf8)
-                    print("serialNumber : \(serialNumber)")
                     bpDataManager.deviceInfo.serialNumber = String(data: data, encoding: .utf8)
                 case HubidicUUID.HardwareRevisionString_Char:
                     
                     let hardwareVersion = String(data: data, encoding: .utf8)
-                    print("hardwareVersion : \(hardwareVersion)")
                     bpDataManager.deviceInfo.hardwareVersion = String(data: data, encoding: .utf8)
                 case HubidicUUID.BloodPressureIndicateInfo_Char:
                     let command:UInt8 = data[0]
@@ -502,15 +382,15 @@ extension Hubidic: CBPeripheralDelegate {
                         } else {
                             user = .userB
                         }
+                        HubidicDebugManager.log("🟩get userInfo \(user.self)")
                         
-                        print("🟩get userInfo \(user.self)")
 
                         let userNumberByte = data[1]
                         let userNameData = data.subdata(in: 2..<(data.count - 2))
                         let userNameByte:[UInt8] = userNameData.map { $0 }
 
                         // set UserInfo (connect User)
-                        print("🟩set UserInfo (connect User)")
+                        HubidicDebugManager.log("🟩set UserInfo (connect User)")
                         var userInfo = [HubidicCommand.connectUser]
                         userInfo.append(userNumberByte)
                         userInfo.append(contentsOf: userNameByte)
@@ -522,7 +402,7 @@ extension Hubidic: CBPeripheralDelegate {
                         //set Time
                         setTime()
                         enableDisconnect()
-                        readDeviceInformation()
+//                        readDeviceInformation()
                         
                     case HubidicCommand.timeOffset:
                         print("🟪timeoffset")
@@ -540,6 +420,7 @@ extension Hubidic: CBPeripheralDelegate {
                 case HubidicUUID.BloodPressureIndicateInfo_Char:
                     let command:UInt8 = data[0]
                     print("command : \(String(format: "%02x", command))")
+                    HubidicDebugManager.log("command : \(String(format: "%02x", command))")
 
                     switch command {
                         case HubidicCommand.randomNumber:
@@ -553,7 +434,7 @@ extension Hubidic: CBPeripheralDelegate {
                         
                         //set verification Code
                         guard let password = bpDataManager.deviceInfo.password else {
-                            print("🟥 get password error")
+                            HubidicDebugManager.log("get password error", type: .error)
                             return
                             
                         }
@@ -623,7 +504,7 @@ extension Hubidic: CBPeripheralDelegate {
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+    public func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         print("didWriteValueFor \(characteristic.uuid.uuidString)")
         if let error = error {
             print("\(error.localizedDescription)")
@@ -658,7 +539,7 @@ extension Hubidic: CBPeripheralDelegate {
     
 
 extension Hubidic: CBCentralManagerDelegate {
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+    public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .unknown:
             break
@@ -677,7 +558,7 @@ extension Hubidic: CBCentralManagerDelegate {
         }
     }
     
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+    public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
         // ios bluetooth sdk는 peripheral localname을 캐싱하고 있어, 이름이 변하지 않도록 하고있음.
         // 해결방법은 아래와 같이 파싱하여 대신사용
@@ -688,22 +569,20 @@ extension Hubidic: CBCentralManagerDelegate {
         //if 11585B
         if localName.contains(HubidicUUID.deviceName) {
             
-            if peripheral.state == .connected {
-                state = .connected
-            } else {
-                
-                isPairingMode = localName[localName.startIndex] == "0" ? false : true
-                print("✅ isPairingMode \(isPairingMode)")
-                scannedDeviceList.append(peripheral)
-                delegate?.updated(state: .scanFinished, data: nil, error: nil)
-
-            }
+//            isPairingMode = localName[localName.startIndex] == "0" ? false : true
+            print("✅ isPairingMode \(isPairingMode)")
+            let dict : [PeripheralDictionaryKey : Any] = [.peripheral : peripheral, .localName : localName]
+            
+            scannedDeviceList.append(dict)
+            
+//            delegate?.hubidicScannedPeripherals(scannedPeripherals: scannedDeviceList)
+            
         }
         // delegate.send(scannedDeviceList)
         
     }
     
-    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+    public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("centralManager didConnect")
         state = .connected
         activePeripheral = peripheral
@@ -715,8 +594,9 @@ extension Hubidic: CBCentralManagerDelegate {
         
 //        delegate?.Hubidic(updatedState: state, data: nil, error: nil)
     }
+
     
-    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+    public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print(error.debugDescription)
         state = .connectFailed
         //delegate.state(state)

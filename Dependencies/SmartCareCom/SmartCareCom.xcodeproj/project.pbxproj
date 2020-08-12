@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58B5602324D78C4A006FA022 /* SmartCareCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602224D78C4A006FA022 /* SmartCareCom.swift */; };
 		58CD2B3224D3ECE600072E2A /* SmartCareCom.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD2B3024D3ECE600072E2A /* SmartCareCom.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58B5602224D78C4A006FA022 /* SmartCareCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCareCom.swift; sourceTree = "<group>"; };
 		58CD2B2D24D3ECE600072E2A /* SmartCareCom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmartCareCom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CD2B3024D3ECE600072E2A /* SmartCareCom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartCareCom.h; sourceTree = "<group>"; };
 		58CD2B3124D3ECE600072E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				58CD2B3024D3ECE600072E2A /* SmartCareCom.h */,
 				58CD2B3124D3ECE600072E2A /* Info.plist */,
+				58B5602224D78C4A006FA022 /* SmartCareCom.swift */,
 			);
 			path = SmartCareCom;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 				TargetAttributes = {
 					58CD2B2C24D3ECE600072E2A = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -183,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B5602324D78C4A006FA022 /* SmartCareCom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -305,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -320,6 +325,7 @@
 		58CD2B3624D3ECE600072E2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2KZW859V78;
@@ -336,6 +342,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmate.framework.SmartCareCom;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -344,7 +352,9 @@
 		58CD2B3724D3ECE600072E2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2KZW859V78;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -359,7 +369,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmate.framework.SmartCareCom;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
