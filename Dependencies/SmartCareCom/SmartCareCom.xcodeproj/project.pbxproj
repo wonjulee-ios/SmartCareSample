@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5854099B24E3A5C000DFC6D7 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5854099A24E3A5C000DFC6D7 /* Definition.swift */; };
+		585409A024E3DC2C00DFC6D7 /* BloodPressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5854099F24E3DC2C00DFC6D7 /* BloodPressManager.swift */; };
 		58B5602324D78C4A006FA022 /* SmartCareCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602224D78C4A006FA022 /* SmartCareCom.swift */; };
 		58CD2B3224D3ECE600072E2A /* SmartCareCom.h in Headers */ = {isa = PBXBuildFile; fileRef = 58CD2B3024D3ECE600072E2A /* SmartCareCom.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5854099A24E3A5C000DFC6D7 /* Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
+		5854099F24E3DC2C00DFC6D7 /* BloodPressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPressManager.swift; sourceTree = "<group>"; };
 		58B5602224D78C4A006FA022 /* SmartCareCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCareCom.swift; sourceTree = "<group>"; };
 		58CD2B2D24D3ECE600072E2A /* SmartCareCom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SmartCareCom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CD2B3024D3ECE600072E2A /* SmartCareCom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmartCareCom.h; sourceTree = "<group>"; };
@@ -47,6 +51,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5854099924E3A5AF00DFC6D7 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				5854099A24E3A5C000DFC6D7 /* Definition.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		5854099C24E3D31800DFC6D7 /* BloodPressManager */ = {
+			isa = PBXGroup;
+			children = (
+				5854099F24E3DC2C00DFC6D7 /* BloodPressManager.swift */,
+			);
+			path = BloodPressManager;
+			sourceTree = "<group>";
+		};
+		5854099D24E3D32300DFC6D7 /* BloodGlucoseManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BloodGlucoseManager;
+			sourceTree = "<group>";
+		};
+		5854099E24E3D33000DFC6D7 /* BodyWeightManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BodyWeightManager;
+			sourceTree = "<group>";
+		};
 		58CD2B2324D3ECE600072E2A = {
 			isa = PBXGroup;
 			children = (
@@ -67,9 +101,13 @@
 		58CD2B2F24D3ECE600072E2A /* SmartCareCom */ = {
 			isa = PBXGroup;
 			children = (
+				5854099E24E3D33000DFC6D7 /* BodyWeightManager */,
+				5854099D24E3D32300DFC6D7 /* BloodGlucoseManager */,
+				5854099C24E3D31800DFC6D7 /* BloodPressManager */,
 				58CD2B3024D3ECE600072E2A /* SmartCareCom.h */,
 				58CD2B3124D3ECE600072E2A /* Info.plist */,
 				58B5602224D78C4A006FA022 /* SmartCareCom.swift */,
+				5854099924E3A5AF00DFC6D7 /* Class */,
 			);
 			path = SmartCareCom;
 			sourceTree = "<group>";
@@ -187,6 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				585409A024E3DC2C00DFC6D7 /* BloodPressManager.swift in Sources */,
+				5854099B24E3A5C000DFC6D7 /* Definition.swift in Sources */,
 				58B5602324D78C4A006FA022 /* SmartCareCom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

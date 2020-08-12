@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Hubidic
+import SmartCareCom
 class ViewController: UIViewController {
 
     @IBOutlet weak var tvList: UITextView!

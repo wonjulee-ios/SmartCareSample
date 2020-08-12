@@ -23,7 +23,7 @@ public class Hubidic: NSObject {
     private var isPairingMode:Bool = false
     var state:HubidicState = .disconected
     
-    weak var delegate:HubidicDelegate?
+    public weak var delegate:HubidicDelegate?
     
     var timer:Timer?
     let bpDataManager:BloodPressDataManager = BloodPressDataManager(deviceInfo: HubidicDevice())
@@ -42,6 +42,8 @@ public class Hubidic: NSObject {
 //    }
     
     public func scanForDevice(){
+        print("scanForDevice")
+        HubidicDebugManager.log("scanForDevice")
         isPairingMode = true
         state = .scanning
         manager.scanForPeripherals(withServices: [CBUUID(string: HubidicUUID.serviceUUID)],
@@ -52,7 +54,7 @@ public class Hubidic: NSObject {
     }
     
     public func scanForKnownDevice(completion: ((HubidicError) -> Void)? = nil){
-        
+        HubidicDebugManager.log("scanForKnownDevice")
         guard let uuidString = bpDataManager.deviceInfo.uuid else {
             
 //            completion(HubidicError.noDeviceInfo)
@@ -67,18 +69,19 @@ public class Hubidic: NSObject {
         manager.retrievePeripherals(withIdentifiers: [uuid])
     }
     
-    func scanStop(){
+    public func scanStop(){
+        HubidicDebugManager.log("")
         manager.stopScan()
     }
     
-    func connectDevice(with peripheral:CBPeripheral){
-        
+    public func connectDevice(with peripheral:CBPeripheral){
+        HubidicDebugManager.log("")
         manager.connect(peripheral)
     }
     /*
      The pairing is finished after “[ ]” is shown on the display of the device. The App should store the Password, Model Name, Serial Number, Mac Address, etc for the next connection. The device will disconnected after getting Enable Disconnection Command.
      */
-    func diconnectDevice(){
+    public func diconnectDevice(){
         
     }
     
@@ -95,7 +98,7 @@ public class Hubidic: NSObject {
     }
         
     private func sendAccountID(with characteristic: CBCharacteristic){
-        HubidicDebugManager.log("sendAccountID")
+        HubidicDebugManager.log("")
 
         
         guard let value = selectedUserType?.getValueReversed() else {
@@ -152,7 +155,7 @@ public class Hubidic: NSObject {
         let disconnectData = Data(disconnect)
         guard let AppToDeviceCharacteristic = AppToDeviceCharacteristic else { return }
         sendToDevice(with: disconnectData, characteristic: AppToDeviceCharacteristic)
-        HubidicDebugManager.log("enableDisconnect")
+        HubidicDebugManager.log("")
     }
     
     private func readValue(serviceUUIDString:String, characteristicUUID:String, peripheral:CBPeripheral){

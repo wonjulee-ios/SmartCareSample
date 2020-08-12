@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Hubidic
 import SmartCareCom
 class SelectBleDeviceViewController: UIViewController {
     
@@ -16,7 +15,7 @@ class SelectBleDeviceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -50,11 +49,21 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
+//        let com = SmartCareCom()
+        
+        if dataList[indexPath.section] == "A&D" {
+            SmartCareCom.shared.bpManager.select(deviceType: .AnD)
+        } else {
+            SmartCareCom.shared.bpManager.select(deviceType: .Hubidic)
+        }
+        
         vc.scanStartClosure = { [weak self] in
             print("start")
+            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
         }
         vc.scanFinishClosure = { [weak self] in
             print("finish")
+            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
         }
         
         

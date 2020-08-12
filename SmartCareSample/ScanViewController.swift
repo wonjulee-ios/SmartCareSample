@@ -34,8 +34,10 @@ class ScanViewController: UIViewController {
             if newValue == true,
                 let scan = scanStartClosure {
                 scan()
+                btnScan.setTitle("스캔중...", for: .normal)
             } else if let scanfinish = scanFinishClosure {
                 scanfinish()
+                btnScan.setTitle("스캔 중지", for: .normal)
             }
             
         }
