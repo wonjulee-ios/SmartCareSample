@@ -52,9 +52,9 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
 //        let com = SmartCareCom()
         
         if dataList[indexPath.section] == "A&D" {
-            SmartCareCom.shared.bpManager.select(deviceType: .AnD)
+            SmartCareCom.shared.bpManager.select(to: .AnD)
         } else {
-            SmartCareCom.shared.bpManager.select(deviceType: .Hubidic)
+            SmartCareCom.shared.bpManager.select(to: .Hubidic)
         }
         
         vc.scanStartClosure = { [weak self] in

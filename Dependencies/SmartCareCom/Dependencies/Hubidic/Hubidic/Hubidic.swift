@@ -26,20 +26,13 @@ public class Hubidic: NSObject {
     public weak var delegate:HubidicDelegate?
     
     var timer:Timer?
-    let bpDataManager:BloodPressDataManager = BloodPressDataManager(deviceInfo: HubidicDevice())
+    public let bpDataManager:BloodPressDataManager = BloodPressDataManager(deviceInfo: HubidicDevice())
     
-    public init(user:HubidicUserNo?) {
+    public override init() {
         super.init()
-        selectedUserType = user
         manager.delegate = self
         
     }
-//    public func initManager(user:HubidicUserNo?){
-//        manager =
-//        selectedUserType = user
-//        manager.delegate = self
-        
-//    }
     
     public func scanForDevice(){
         print("scanForDevice")
