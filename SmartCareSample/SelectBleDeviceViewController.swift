@@ -8,7 +8,7 @@
 
 import UIKit
 import SmartCareCom
-//import Resources
+import Resource
 
 class SelectBleDeviceViewController: UIViewController {
     
@@ -52,9 +52,8 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
         
 //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
 //        let com = SmartCareCom()
-//        let scanView: ScanViewController = R.Storyboard.scanView.instance
-        
-        
+        let scanView: ScanViewController = R.Storyboard.scanView.instance()
+
         if dataList[indexPath.section] == "A&D" {
             SmartCareCom.shared.bpManager.select(to: .AnD)
         } else {
@@ -64,18 +63,18 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
         scanView.scanStartClosure = { [weak self] in
             print("start")
             SmartCareCom.shared.bpManager.fetchAllData()
-            
-            
+
+
 //            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
-            
+
         }
         scanView.scanFinishClosure = { [weak self] in
             print("finish")
-            
+
 //            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
         }
-        
-        
+
+
         self.navigationController?.present(scanView, animated: true, completion: nil)
     }
     

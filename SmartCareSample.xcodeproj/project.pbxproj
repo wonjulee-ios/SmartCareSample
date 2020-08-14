@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5854099224E28A0B00DFC6D7 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5854099124E28A0B00DFC6D7 /* ScanViewController.swift */; };
 		58B5602524D79CDE006FA022 /* ManageBleDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */; };
 		58B5602A24D7AADA006FA022 /* SelectBleDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */; };
 		58B7B15424E669CC00751234 /* Resource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58B7B15324E669C100751234 /* Resource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -53,7 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5854099124E28A0B00DFC6D7 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScanViewController.swift; path = ../Dependencies/SmartCareCom/ScanView/ScanViewController.swift; sourceTree = "<group>"; };
 		58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBleDeviceViewController.swift; sourceTree = "<group>"; };
 		58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBleDeviceViewController.swift; sourceTree = "<group>"; };
 		58B7B14E24E669C000751234 /* Resource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Resource.xcodeproj; path = Resource/Resource.xcodeproj; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				58CD2AE424D3EBE300072E2A /* AppDelegate.swift */,
 				58CD2AE824D3EBE300072E2A /* ViewController.swift */,
 				58CD2AEA24D3EBE300072E2A /* Main.storyboard */,
-				5854099124E28A0B00DFC6D7 /* ScanViewController.swift */,
 				58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */,
 				58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */,
 				58CD2AED24D3EBE500072E2A /* Assets.xcassets */,
@@ -248,7 +245,6 @@
 				58B5602524D79CDE006FA022 /* ManageBleDeviceViewController.swift in Sources */,
 				58CD2AE524D3EBE300072E2A /* AppDelegate.swift in Sources */,
 				58B5602A24D7AADA006FA022 /* SelectBleDeviceViewController.swift in Sources */,
-				5854099224E28A0B00DFC6D7 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
