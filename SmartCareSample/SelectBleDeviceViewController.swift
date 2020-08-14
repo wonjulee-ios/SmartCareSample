@@ -8,6 +8,8 @@
 
 import UIKit
 import SmartCareCom
+//import Resources
+
 class SelectBleDeviceViewController: UIViewController {
     
     @IBOutlet weak var tvList: UITableView!
@@ -48,8 +50,10 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
 //        let com = SmartCareCom()
+//        let scanView: ScanViewController = R.Storyboard.scanView.instance
+        
         
         if dataList[indexPath.section] == "A&D" {
             SmartCareCom.shared.bpManager.select(to: .AnD)
@@ -57,17 +61,22 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
             SmartCareCom.shared.bpManager.select(to: .Hubidic)
         }
         
-        vc.scanStartClosure = { [weak self] in
+        scanView.scanStartClosure = { [weak self] in
             print("start")
-            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
+            SmartCareCom.shared.bpManager.fetchAllData()
+            
+            
+//            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
+            
         }
-        vc.scanFinishClosure = { [weak self] in
+        scanView.scanFinishClosure = { [weak self] in
             print("finish")
-            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
+            
+//            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
         }
         
         
-        self.navigationController?.present(vc, animated: true, completion: nil)
+        self.navigationController?.present(scanView, animated: true, completion: nil)
     }
     
     
