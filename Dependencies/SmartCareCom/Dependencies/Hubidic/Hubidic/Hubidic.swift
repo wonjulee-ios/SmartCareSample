@@ -36,6 +36,7 @@ public class Hubidic: NSObject {
     
     public func scanForDevice(){
         print("scanForDevice")
+        
         HubidicDebugManager.log("scanForDevice")
         isPairingMode = true
         state = .scanning
