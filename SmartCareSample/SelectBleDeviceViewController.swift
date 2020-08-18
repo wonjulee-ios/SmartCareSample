@@ -50,32 +50,43 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
-//        let com = SmartCareCom()
         let scanView: ScanViewController = R.Storyboard.scanView.instance()
-
         if dataList[indexPath.section] == "A&D" {
             SmartCareCom.shared.bpManager.select(to: .AnD)
         } else {
             SmartCareCom.shared.bpManager.select(to: .Hubidic)
         }
         
-        scanView.scanStartClosure = { [weak self] in
+        scanView.scanStartClosure = { [unowned scanView] in
             print("start")
-            SmartCareCom.shared.bpManager.fetchAllData()
-
-
-//            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
-
+            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
         }
-        scanView.scanFinishClosure = { [weak self] in
+        scanView.scanFinishClosure = { [unowned scanView] in
             print("finish")
-
+            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
 //            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
         }
-
+        scanView.scanSelectUUIDClosure = {[weak scanView] a in
+            
+            
+        }
+        
 
         self.navigationController?.present(scanView, animated: true, completion: nil)
+    }
+    
+    
+}
+
+
+extension ScanViewController : DeviceManagerScannable {
+    public func DeviceManagerScanning(dictArray: [[String : String]]) {
+        
+        for dict in 0...5 {
+            scanList.append([.deviceName:"안녕", .rssi:"-59", .uuidSrting : "ABAB"])
+        }
+        
+        
     }
     
     

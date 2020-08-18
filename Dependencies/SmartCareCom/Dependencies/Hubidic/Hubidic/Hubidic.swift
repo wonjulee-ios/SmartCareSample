@@ -19,16 +19,16 @@ public class Hubidic: NSObject {
     
     var scannedDeviceList: [[PeripheralDictionaryKey:Any]] = []
     private var connectUserFlag:Bool = false
-    private var selectedUserType:HubidicUserNo?
     private var isPairingMode:Bool = false
     var state:HubidicState = .disconected
     
     public weak var delegate:HubidicDelegate?
     
     var timer:Timer?
-    public let bpDataManager:BloodPressDataManager = BloodPressDataManager(deviceInfo: HubidicDevice())
+    public let bpDataManager:HubidicDataManager
     
-    public override init() {
+    public init(deviceInfo:HubidicDevice) {
+        bpDataManager = HubidicDataManager(deviceInfo: deviceInfo)
         super.init()
         manager.delegate = self
         
@@ -95,7 +95,7 @@ public class Hubidic: NSObject {
         HubidicDebugManager.log("")
 
         
-        guard let value = selectedUserType?.getValueReversed() else {
+        guard let value = bpDataManager.deviceInfo.selectedUserType?.getValueReversed() else {
             
             // usertype이 nil 즉, all일 때
             let accountInfo:[UInt8] = [HubidicCommand.accountId,0x4B,0x09,0xDF,0x78]
@@ -399,6 +399,9 @@ extension Hubidic: CBPeripheralDelegate {
                         //set Time
                         setTime()
                         enableDisconnect()
+                        
+                        delegate?.updated(state: .connected, data: "finishParing", error: nil)
+                        bpDataManager.delegate?.HubidicDeviceInfo(info: bpDataManager.deviceInfo)
 //                        readDeviceInformation()
                         
                     case HubidicCommand.timeOffset:
@@ -572,7 +575,7 @@ extension Hubidic: CBCentralManagerDelegate {
             
             scannedDeviceList.append(dict)
             
-//            delegate?.hubidicScannedPeripherals(scannedPeripherals: scannedDeviceList)
+            delegate?.hubidicScannedPeripherals(scannedPeripherals: scannedDeviceList)
             
         }
         // delegate.send(scannedDeviceList)
