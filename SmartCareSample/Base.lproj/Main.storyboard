@@ -79,7 +79,10 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvF-Ws-Zvk">
                                                 <rect key="frame" x="343" y="0.0" width="71" height="75"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="동기화"/>
+                                                <connections>
+                                                    <action selector="onSyncTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TWD-F2-blr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scan View Controller-->
+        <scene sceneID="zE9-vd-VXp">
+            <objects>
+                <viewController storyboardIdentifier="ScanViewController" id="se1-9k-pAL" customClass="ScanViewController" customModule="Resource" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZQF-Kl-3TE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fk9-Fj-uRO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="735"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLJ-Vh-YuG">
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-Z7-lEp">
+                                        <rect key="frame" x="62" y="12.5" width="290" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="OJn-Z7-lEp" secondAttribute="height" multiplier="5:1" id="6Y8-6W-s1g"/>
+                                        </constraints>
+                                        <state key="normal" title="스캔중"/>
+                                        <connections>
+                                            <action selector="scanToogle:" destination="se1-9k-pAL" eventType="touchUpInside" id="C9v-Zy-7nj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="OJn-Z7-lEp" firstAttribute="centerY" secondItem="aLJ-Vh-YuG" secondAttribute="centerY" id="1p6-wa-25G"/>
+                                    <constraint firstAttribute="width" secondItem="aLJ-Vh-YuG" secondAttribute="height" multiplier="15:3" id="7tF-KJ-hAg"/>
+                                    <constraint firstItem="OJn-Z7-lEp" firstAttribute="width" secondItem="aLJ-Vh-YuG" secondAttribute="width" multiplier="0.7" id="cgs-1e-F3q"/>
+                                    <constraint firstItem="OJn-Z7-lEp" firstAttribute="centerX" secondItem="aLJ-Vh-YuG" secondAttribute="centerX" id="lCd-hT-WdD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aLJ-Vh-YuG" firstAttribute="top" secondItem="fk9-Fj-uRO" secondAttribute="bottom" id="0gD-zV-DdV"/>
+                            <constraint firstItem="aLJ-Vh-YuG" firstAttribute="leading" secondItem="hLJ-4J-28X" secondAttribute="leading" id="JYO-Cz-Dvq"/>
+                            <constraint firstItem="fk9-Fj-uRO" firstAttribute="top" secondItem="hLJ-4J-28X" secondAttribute="top" id="LyN-uj-Jm0"/>
+                            <constraint firstItem="hLJ-4J-28X" firstAttribute="trailing" secondItem="fk9-Fj-uRO" secondAttribute="trailing" id="bxa-yX-MhN"/>
+                            <constraint firstItem="fk9-Fj-uRO" firstAttribute="leading" secondItem="hLJ-4J-28X" secondAttribute="leading" id="g5x-IJ-bvL"/>
+                            <constraint firstItem="hLJ-4J-28X" firstAttribute="trailing" secondItem="aLJ-Vh-YuG" secondAttribute="trailing" id="hkJ-O0-kWr"/>
+                            <constraint firstItem="hLJ-4J-28X" firstAttribute="bottom" secondItem="aLJ-Vh-YuG" secondAttribute="bottom" id="sri-ab-g1t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hLJ-4J-28X"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnScan" destination="OJn-Z7-lEp" id="a8r-5M-rfS"/>
+                        <outlet property="tvList" destination="fk9-Fj-uRO" id="K6d-mP-QRv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAA-oh-yqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456.52173913043481" y="139.95535714285714"/>
+        </scene>
+    </scenes>
+</document>

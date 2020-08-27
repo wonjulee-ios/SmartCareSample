@@ -8,6 +8,7 @@
 
 import UIKit
 import SmartCareCom
+import Resource
 class ViewController: UIViewController {
 
     @IBOutlet weak var tvList: UITextView!
@@ -20,7 +21,15 @@ class ViewController: UIViewController {
     @IBAction func openSetting(_ sender: Any) {
         
     }
-
+    @IBAction func onSyncTest(_ sender: Any) {
+        let vc = R.Storyboard.bpDataSyncView.instance()
+        
+//        vc.modalPresentationStyle = .overFullScreen
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
     
 }
 
