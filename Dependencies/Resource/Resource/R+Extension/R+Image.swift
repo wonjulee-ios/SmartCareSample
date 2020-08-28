@@ -19,9 +19,17 @@ public extension R.Image {
     static var imgDeviceHubidic: UIImage { .load(name: "imgDeviceHubidic") }
     static var icMeasureClose: UIImage { .load(name: "icMeasureClose") }
     static var icMeasureNext: UIImage { .load(name: "icMeasureNext") }
-    static var imgMeasureDevice2P1: UIImage { .load(name: "imgMeasureDevice2P1") }
     static var btnMeasureChoice: UIImage { .load(name: "btnMeasureChoice") }
     static var btnMeasureChoicePressed: UIImage { .load(name: "btnMeasureChoicePressed") }
+    static var imgMeasureDevice1P1: UIImage { .load(name: "imgMeasureDevice1P1") }
+    static var imgMeasureDevice1P2: UIImage { .load(name: "imgMeasureDevice1P2") }
+    static var imgMeasureDevice2P1: UIImage { .load(name: "imgMeasureDevice2P1") }
+    static var imgMeasureDevice2P2: UIImage { .load(name: "imgMeasureDevice2P2") }
+    
+    
+    
+    
+    
 //    static var icPopupChoice: UIImage { .load(name: "icPopupChoice") }
 //    static var icPopupChoicePressed: UIImage { .load(name: "icPopupChoicePressed") }
     

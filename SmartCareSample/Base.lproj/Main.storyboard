@@ -113,7 +113,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxG-2r-tc8">
                                         <rect key="frame" x="343" y="0.0" width="71" height="50"/>
-                                        <state key="normal" title="Button" image="icMeasureChoice"/>
+                                        <state key="normal" title="측정화면">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onMeasure:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FfF-Un-38H"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -284,7 +289,4 @@
             <point key="canvasLocation" x="131.8840579710145" y="128.57142857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icMeasureChoice" width="27.5" height="27.5"/>
-    </resources>
 </document>

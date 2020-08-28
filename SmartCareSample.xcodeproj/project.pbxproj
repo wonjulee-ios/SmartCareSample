@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		584B245A24F8E0B70073D359 /* BpMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B245924F8E0B70073D359 /* BpMeasureViewController.swift */; };
 		58B5602524D79CDE006FA022 /* ManageBleDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */; };
 		58B5602A24D7AADA006FA022 /* SelectBleDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */; };
 		58B7B15424E669CC00751234 /* Resource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58B7B15324E669C100751234 /* Resource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -65,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		584B245924F8E0B70073D359 /* BpMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpMeasureViewController.swift; sourceTree = "<group>"; };
 		58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBleDeviceViewController.swift; sourceTree = "<group>"; };
 		58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBleDeviceViewController.swift; sourceTree = "<group>"; };
 		58B7B14E24E669C000751234 /* Resource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Resource.xcodeproj; path = Resource/Resource.xcodeproj; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		584B245624F8E0A30073D359 /* BpMeasureView */ = {
+			isa = PBXGroup;
+			children = (
+				584B245924F8E0B70073D359 /* BpMeasureViewController.swift */,
+			);
+			path = BpMeasureView;
+			sourceTree = "<group>";
+		};
 		58B7B14F24E669C000751234 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +181,7 @@
 		58CD2AE324D3EBE300072E2A /* SmartCareSample */ = {
 			isa = PBXGroup;
 			children = (
+				584B245624F8E0A30073D359 /* BpMeasureView */,
 				58BC851224F8C248008A5B0F /* ScanView */,
 				58BC851124F8C242008A5B0F /* DeviceSelectView */,
 				58BC851024F8C232008A5B0F /* PairingView */,
@@ -323,6 +334,7 @@
 			files = (
 				58E3A45024F744D300DAA401 /* BpDataSyncDataModel.swift in Sources */,
 				58E3A44D24F744C700DAA401 /* BpDataSyncCell.swift in Sources */,
+				584B245A24F8E0B70073D359 /* BpMeasureViewController.swift in Sources */,
 				58CD2AE924D3EBE300072E2A /* ViewController.swift in Sources */,
 				58BC852024F8C297008A5B0F /* DeviceSelectModel.swift in Sources */,
 				58BC851924F8C25A008A5B0F /* PairingViewModel.swift in Sources */,

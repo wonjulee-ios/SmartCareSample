@@ -23,14 +23,17 @@ class ViewController: UIViewController {
     }
     @IBAction func onSyncTest(_ sender: Any) {
 //        let vc = R.Storyboard.bpDataSyncView.instance()
-        let vc = UIStoryboard(name: "BpDataSyncViewController", bundle: .main).instantiateViewController(withIdentifier: "BpDataSyncViewController") as! BpDataSyncViewController
-        
-//        vc.modalPresentationStyle = .overFullScreen
+        let vc:BpDataSyncViewController = R.Storyboard.bpDataSyncView.instance()
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         navigationController?.present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func onMeasure(_ sender: Any) {
+        let vc:BpMeasureViewController = R.Storyboard.bpMeasureView.instance()
+        vc.deviceType = .AnD
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 

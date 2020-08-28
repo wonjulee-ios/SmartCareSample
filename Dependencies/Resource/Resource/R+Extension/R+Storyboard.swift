@@ -17,6 +17,8 @@ extension R.Storyboard {
     public static var pairngModeView: Storyboard { Storyboard(name: "PairingViewController") }
     public static var bpDataSyncView: Storyboard { Storyboard(name: "BpDataSyncViewController") }
     public static var bpUserSelectView: Storyboard { Storyboard(name: "BpUserSelecctViewController") }
+    public static var bpMeasureView: Storyboard { Storyboard(name: "BpMeasureViewController") }
+    
     
     
     
