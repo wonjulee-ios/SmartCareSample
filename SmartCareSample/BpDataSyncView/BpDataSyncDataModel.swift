@@ -9,12 +9,11 @@
 import Foundation
 //import SmartCareCom
 import Hubidic
-
 class BpDataSyncDataModel {
     
     var isSelected:Bool
     let data:BloodPressData
-    
+
     init(data:BloodPressData) {
         self.data = data
         self.isSelected = true

@@ -20,8 +20,10 @@ public extension R.Image {
     static var icMeasureClose: UIImage { .load(name: "icMeasureClose") }
     static var icMeasureNext: UIImage { .load(name: "icMeasureNext") }
     static var imgMeasureDevice2P1: UIImage { .load(name: "imgMeasureDevice2P1") }
-    static var icPopupChoice: UIImage { .load(name: "icPopupChoice") }
-    static var icPopupChoicePressed: UIImage { .load(name: "icPopupChoicePressed") }
+    static var btnMeasureChoice: UIImage { .load(name: "btnMeasureChoice") }
+    static var btnMeasureChoicePressed: UIImage { .load(name: "btnMeasureChoicePressed") }
+//    static var icPopupChoice: UIImage { .load(name: "icPopupChoice") }
+//    static var icPopupChoicePressed: UIImage { .load(name: "icPopupChoicePressed") }
     
 }
 

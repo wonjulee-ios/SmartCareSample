@@ -10,5 +10,5 @@ import Foundation
 /// R.swift
 
 public class R {
-    static let bundle = Bundle(for: R.self)
+    public static let bundle = Bundle(for: R.self)
 }

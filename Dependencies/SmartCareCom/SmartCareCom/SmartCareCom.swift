@@ -9,7 +9,6 @@
 import Foundation
 import Hubidic
 
-
 public class SmartCareCom {
     
 //    let bpManager:DeviceManaging

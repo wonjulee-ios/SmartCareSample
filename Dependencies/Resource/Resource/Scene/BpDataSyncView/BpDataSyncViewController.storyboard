@@ -12,7 +12,7 @@
         <!--BpDataSyncViewController-->
         <scene sceneID="dOo-Ua-etR">
             <objects>
-                <viewController storyboardIdentifier="BpDataSyncViewController" id="B0s-cO-dzo" userLabel="BpDataSyncViewController" customClass="BpDataSyncViewController" customModule="Resource" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BpDataSyncViewController" id="B0s-cO-dzo" userLabel="BpDataSyncViewController" customClass="BpDataSyncViewController" customModule="SmartCareSample" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gAJ-dy-9IL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,8 +56,8 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-TV-Db6">
                                                 <rect key="frame" x="16" y="11" width="28" height="28"/>
-                                                <state key="normal" image="icPopupChoice"/>
-                                                <state key="selected" image="icPopupChoicePressed"/>
+                                                <state key="normal" image="icMeasureChoice"/>
+                                                <state key="selected" image="icMeasureChoicePressed"/>
                                                 <connections>
                                                     <action selector="onCheckAll:" destination="B0s-cO-dzo" eventType="touchUpInside" id="ppA-cD-fap"/>
                                                 </connections>
@@ -124,8 +124,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icPopupChoice" width="27.5" height="27.5"/>
-        <image name="icPopupChoicePressed" width="27.5" height="27.5"/>
+        <image name="icMeasureChoice" width="27.5" height="27.5"/>
+        <image name="icMeasureChoicePressed" width="27.5" height="27.5"/>
         <namedColor name="clearBlue">
             <color red="0.17254901960784313" green="0.5725490196078431" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

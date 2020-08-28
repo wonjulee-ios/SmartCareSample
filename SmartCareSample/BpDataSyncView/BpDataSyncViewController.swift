@@ -15,6 +15,7 @@
 //
 
 import UIKit
+import Resource
 import Hubidic
 
 class BpDataSyncViewController: UIViewController {
@@ -36,10 +37,10 @@ class BpDataSyncViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         tvList.backgroundColor = R.Color.paleGrey
-        let nibName = UINib(nibName: cellIdentifier, bundle: R.bundle)
-        tvList.register(nibName, forCellReuseIdentifier: cellIdentifier)
+//        let nibName = UINib(nibName: cellIdentifier, bundle: .main)
+        let nib = R.Nib.BpDataSyncCell.instance()
+        tvList.register(nib, forCellReuseIdentifier: R.Nib.BpDataSyncCell.identifier)
         tvList.delegate = self
         tvList.dataSource = self
         isCheckAll = true
@@ -62,7 +63,7 @@ class BpDataSyncViewController: UIViewController {
                     BpDataSyncDataModel(data:BloodPressData(measureDt: Date(), max: 128, min: 90, hr: 88)),
                     BpDataSyncDataModel(data:BloodPressData(measureDt: Date(), max: 128, min: 90, hr: 88)),
                     BpDataSyncDataModel(data:BloodPressData(measureDt: Date(), max: 128, min: 90, hr: 88)),
-                    
+
         ]
         
         vContent.layer.cornerRadius = 10
@@ -125,16 +126,16 @@ extension BpDataSyncViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BpDataSyncCell
-        
+//
         let syncData = syncList[indexPath.row]
-        
+
         let dateFormatter = DateFormatter()
-        
+
         dateFormatter.locale = Locale(identifier: "ko")
         dateFormatter.dateFormat = "MMM d일 a HH:mm"
         let dateString = dateFormatter.string(from: syncData.data.measureDt)
-                
-        cell.btnCheck.image = syncData.isSelected == true ? R.Image.icPopupChoicePressed : R.Image.icPopupChoice
+
+        cell.btnCheck.image = syncData.isSelected == true ? R.Image.icMeasureChoicePressed : R.Image.icMeasureChoice
         cell.backgroundColor = syncData.isSelected == true ? R.Color.paleBlue : .white
         cell.lblBpValue.text = "\(syncData.data.max)/\(syncData.data.min) (\(syncData.data.hr))"
         cell.lblMeasureDt.text = dateString

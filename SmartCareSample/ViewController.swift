@@ -22,7 +22,8 @@ class ViewController: UIViewController {
         
     }
     @IBAction func onSyncTest(_ sender: Any) {
-        let vc = R.Storyboard.bpDataSyncView.instance()
+//        let vc = R.Storyboard.bpDataSyncView.instance()
+        let vc = UIStoryboard(name: "BpDataSyncViewController", bundle: .main).instantiateViewController(withIdentifier: "BpDataSyncViewController") as! BpDataSyncViewController
         
 //        vc.modalPresentationStyle = .overFullScreen
         vc.modalPresentationStyle = .overCurrentContext
