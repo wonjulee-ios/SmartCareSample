@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol DeviceSelectViewManageDelegate:AnyObject {
+    func DeviceAddButtonPressed(with cell:UITableViewCell)
+}
 class DeviceSelectCell: UITableViewCell {
 
     @IBOutlet weak var vOuter: UIView!
@@ -20,7 +22,7 @@ class DeviceSelectCell: UITableViewCell {
     @IBOutlet weak var lblDeviceModelName: UILabel!
     @IBOutlet weak var lblConnectState: UILabel!
     @IBOutlet weak var btnDeviceManage: UIButton!
-    
+    weak var delegate:DeviceSelectViewManageDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,6 +35,7 @@ class DeviceSelectCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        
         super.layoutSubviews()
     }
     
@@ -41,4 +44,7 @@ class DeviceSelectCell: UITableViewCell {
 //        shadowLayer.removeFromSuperlayer()
     }
     
+    @IBAction func onButtonPress(_ sender: Any) {
+        delegate?.DeviceAddButtonPressed(with: self)
+    }
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Resource
 
 /// - data : 해당 프로퍼티를 반드시 할당하고 초기화할 것.
 class PairingViewController: UIViewController {
@@ -20,12 +20,8 @@ class PairingViewController: UIViewController {
         super.viewDidLoad()
         title = "페어링"
         tvList.backgroundColor = R.Color.paleGrey
-        let nibName = UINib(nibName: paringTypeCellIdentifier, bundle: R.bundle)
-        let nibName2 = UINib(nibName: pairingUserSelectCellIdentifier, bundle: R.bundle)
-        
-        tvList.register(nibName, forCellReuseIdentifier: paringTypeCellIdentifier)
-        tvList.register(nibName2, forCellReuseIdentifier: pairingUserSelectCellIdentifier)
-//        tvList.rowHeight = UITableView.automaticDimension
+        tvList.register(R.Nib.PairingTypeACell.instance(), forCellReuseIdentifier: R.Nib.PairingTypeACell.identifier)
+        tvList.register(R.Nib.PairingUserSelectCell.instance(), forCellReuseIdentifier: R.Nib.PairingUserSelectCell.identifier)
         tvList.delegate = self
         tvList.dataSource = self
         
@@ -97,7 +93,7 @@ extension PairingViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 cell.arrowTrailing.constant = 0
                 cell.imgNext.isHidden = true
-                cell.lblUserType.text = "블루투스가 정상적으로 켜져있는지 확인해"
+                cell.lblUserType.text = "블루투스가 정상적으로 켜져있는지 확인하세요"
             }
             
             return cell
@@ -105,6 +101,18 @@ extension PairingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let userType = data.userType, indexPath.row == 1{
+            let vc:BpUserSelectViewController = R.Storyboard.bpUserSelectView.instance()
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            vc.selectFinishClosure = { [weak self] result in
+                if let result = result as? String {
+                    self?.data.userType = result
+                    self?.tvList.reloadRows(at: [indexPath], with: .automatic)
+                }
+                
+            }
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        }
     }
 }

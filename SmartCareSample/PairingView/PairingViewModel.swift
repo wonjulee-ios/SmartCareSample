@@ -12,7 +12,7 @@ import UIKit
 struct PairingViewModel {
     let textString:String?
     let deviceImage:UIImage?
-    let userType:String?
+    var userType:String?
     
     init(textString:String?, deviceImage:UIImage?, userType:String? = nil) {
         self.textString = textString

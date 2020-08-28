@@ -12,6 +12,15 @@
 		58B7B15424E669CC00751234 /* Resource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58B7B15324E669C100751234 /* Resource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58BC850B24F885F5008A5B0F /* BpUserSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC850A24F885F5008A5B0F /* BpUserSelectViewController.swift */; };
 		58BC850F24F889D4008A5B0F /* BpUserSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC850E24F889D4008A5B0F /* BpUserSelectCell.swift */; };
+		58BC851724F8C25A008A5B0F /* PairingTypeACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC851324F8C25A008A5B0F /* PairingTypeACell.swift */; };
+		58BC851824F8C25A008A5B0F /* PairingUserSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC851424F8C25A008A5B0F /* PairingUserSelectCell.swift */; };
+		58BC851924F8C25A008A5B0F /* PairingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC851524F8C25A008A5B0F /* PairingViewModel.swift */; };
+		58BC851A24F8C25A008A5B0F /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC851624F8C25A008A5B0F /* PairingViewController.swift */; };
+		58BC851E24F8C297008A5B0F /* DeviceSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC851B24F8C294008A5B0F /* DeviceSelectViewController.swift */; };
+		58BC851F24F8C297008A5B0F /* DeviceSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC851C24F8C294008A5B0F /* DeviceSelectCell.swift */; };
+		58BC852024F8C297008A5B0F /* DeviceSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC851D24F8C294008A5B0F /* DeviceSelectModel.swift */; };
+		58BC852324F8C29F008A5B0F /* ScanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC852124F8C29F008A5B0F /* ScanViewCell.swift */; };
+		58BC852424F8C29F008A5B0F /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC852224F8C29F008A5B0F /* ScanViewController.swift */; };
 		58CD2AE524D3EBE300072E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD2AE424D3EBE300072E2A /* AppDelegate.swift */; };
 		58CD2AE924D3EBE300072E2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CD2AE824D3EBE300072E2A /* ViewController.swift */; };
 		58CD2AEC24D3EBE300072E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58CD2AEA24D3EBE300072E2A /* Main.storyboard */; };
@@ -61,6 +70,15 @@
 		58B7B14E24E669C000751234 /* Resource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Resource.xcodeproj; path = Resource/Resource.xcodeproj; sourceTree = "<group>"; };
 		58BC850A24F885F5008A5B0F /* BpUserSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpUserSelectViewController.swift; sourceTree = "<group>"; };
 		58BC850E24F889D4008A5B0F /* BpUserSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpUserSelectCell.swift; sourceTree = "<group>"; };
+		58BC851324F8C25A008A5B0F /* PairingTypeACell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingTypeACell.swift; sourceTree = "<group>"; };
+		58BC851424F8C25A008A5B0F /* PairingUserSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingUserSelectCell.swift; sourceTree = "<group>"; };
+		58BC851524F8C25A008A5B0F /* PairingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingViewModel.swift; sourceTree = "<group>"; };
+		58BC851624F8C25A008A5B0F /* PairingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
+		58BC851B24F8C294008A5B0F /* DeviceSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSelectViewController.swift; sourceTree = "<group>"; };
+		58BC851C24F8C294008A5B0F /* DeviceSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSelectCell.swift; sourceTree = "<group>"; };
+		58BC851D24F8C294008A5B0F /* DeviceSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSelectModel.swift; sourceTree = "<group>"; };
+		58BC852124F8C29F008A5B0F /* ScanViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewCell.swift; sourceTree = "<group>"; };
+		58BC852224F8C29F008A5B0F /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		58CD2AE124D3EBE300072E2A /* SmartCareSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCareSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58CD2AE424D3EBE300072E2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58CD2AE824D3EBE300072E2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +120,36 @@
 			path = BpUserSelectView;
 			sourceTree = "<group>";
 		};
+		58BC851024F8C232008A5B0F /* PairingView */ = {
+			isa = PBXGroup;
+			children = (
+				58BC851624F8C25A008A5B0F /* PairingViewController.swift */,
+				58BC851524F8C25A008A5B0F /* PairingViewModel.swift */,
+				58BC851324F8C25A008A5B0F /* PairingTypeACell.swift */,
+				58BC851424F8C25A008A5B0F /* PairingUserSelectCell.swift */,
+			);
+			path = PairingView;
+			sourceTree = "<group>";
+		};
+		58BC851124F8C242008A5B0F /* DeviceSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				58BC851B24F8C294008A5B0F /* DeviceSelectViewController.swift */,
+				58BC851C24F8C294008A5B0F /* DeviceSelectCell.swift */,
+				58BC851D24F8C294008A5B0F /* DeviceSelectModel.swift */,
+			);
+			path = DeviceSelectView;
+			sourceTree = "<group>";
+		};
+		58BC851224F8C248008A5B0F /* ScanView */ = {
+			isa = PBXGroup;
+			children = (
+				58BC852224F8C29F008A5B0F /* ScanViewController.swift */,
+				58BC852124F8C29F008A5B0F /* ScanViewCell.swift */,
+			);
+			path = ScanView;
+			sourceTree = "<group>";
+		};
 		58CD2AD824D3EBE300072E2A = {
 			isa = PBXGroup;
 			children = (
@@ -123,11 +171,14 @@
 		58CD2AE324D3EBE300072E2A /* SmartCareSample */ = {
 			isa = PBXGroup;
 			children = (
+				58BC851224F8C248008A5B0F /* ScanView */,
+				58BC851124F8C242008A5B0F /* DeviceSelectView */,
+				58BC851024F8C232008A5B0F /* PairingView */,
 				58BC850924F8855B008A5B0F /* BpUserSelectView */,
+				58E3A44B24F7434800DAA401 /* BpDataSyncView */,
 				58CD2AE424D3EBE300072E2A /* AppDelegate.swift */,
 				58CD2AE824D3EBE300072E2A /* ViewController.swift */,
 				58CD2AEA24D3EBE300072E2A /* Main.storyboard */,
-				58E3A44B24F7434800DAA401 /* BpDataSyncView */,
 				58B5602424D79CDE006FA022 /* ManageBleDeviceViewController.swift */,
 				58B5602924D7AADA006FA022 /* SelectBleDeviceViewController.swift */,
 				58CD2AED24D3EBE500072E2A /* Assets.xcassets */,
@@ -273,12 +324,21 @@
 				58E3A45024F744D300DAA401 /* BpDataSyncDataModel.swift in Sources */,
 				58E3A44D24F744C700DAA401 /* BpDataSyncCell.swift in Sources */,
 				58CD2AE924D3EBE300072E2A /* ViewController.swift in Sources */,
+				58BC852024F8C297008A5B0F /* DeviceSelectModel.swift in Sources */,
+				58BC851924F8C25A008A5B0F /* PairingViewModel.swift in Sources */,
 				58B5602524D79CDE006FA022 /* ManageBleDeviceViewController.swift in Sources */,
 				58CD2AE524D3EBE300072E2A /* AppDelegate.swift in Sources */,
 				58B5602A24D7AADA006FA022 /* SelectBleDeviceViewController.swift in Sources */,
+				58BC851A24F8C25A008A5B0F /* PairingViewController.swift in Sources */,
+				58BC852324F8C29F008A5B0F /* ScanViewCell.swift in Sources */,
 				58BC850F24F889D4008A5B0F /* BpUserSelectCell.swift in Sources */,
 				58BC850B24F885F5008A5B0F /* BpUserSelectViewController.swift in Sources */,
+				58BC851724F8C25A008A5B0F /* PairingTypeACell.swift in Sources */,
 				58E3A44C24F744C300DAA401 /* BpDataSyncViewController.swift in Sources */,
+				58BC851E24F8C297008A5B0F /* DeviceSelectViewController.swift in Sources */,
+				58BC851824F8C25A008A5B0F /* PairingUserSelectCell.swift in Sources */,
+				58BC851F24F8C297008A5B0F /* DeviceSelectCell.swift in Sources */,
+				58BC852424F8C29F008A5B0F /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

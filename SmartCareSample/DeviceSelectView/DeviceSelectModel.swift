@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Resource
 struct DeviceSelectDataModel {
     var isSelected:Bool
     var isConnected:Bool
@@ -28,11 +28,13 @@ struct DeviceSelectDataModel {
         self.titleName = titleName
         self.deviceModelName = deviceModelName
         deviceImage = R.Image.imgDeviceAnD
-        manageButtonColor = R.Color.mango
+        
         if isConnected {
+            manageButtonColor = R.Color.clearBlue
             self.manageButtonText = "기기 해제"
             self.isConnectedString = "연결됨"
         } else {
+            manageButtonColor = R.Color.mango
             self.manageButtonText = "기기 등록"
         }
         

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Resource
 
 class DeviceSelectViewController: UIViewController {
 
@@ -19,10 +19,10 @@ class DeviceSelectViewController: UIViewController {
         super.viewDidLoad()
         title = "혈압기기 선택"
         tvList.backgroundColor = R.Color.warmGrey
-        let nibName = UINib(nibName: cellIdentifier, bundle: R.bundle)
+        let nib = R.Nib.DeviceSelectCell.instance()
         tvList.delegate = self
         tvList.dataSource = self
-        tvList.register(nibName, forCellReuseIdentifier: cellIdentifier)
+        tvList.register(nib, forCellReuseIdentifier: R.Nib.DeviceSelectCell.identifier)
         
         dataList = [DeviceSelectDataModel(isSelected: true, isConnected: true, titleName: "AnD", deviceModelName: "HBP-1700", userInfo: "사용자 A"),
                     DeviceSelectDataModel(isSelected: false, isConnected: false, titleName: "HuBIDIC", deviceModelName: "HBP-1700", userInfo: nil)]
@@ -39,9 +39,6 @@ class DeviceSelectViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @objc func deviceManageAction(sender:Any){
-        
-    }
 
 }
 
@@ -73,17 +70,9 @@ extension DeviceSelectViewController: UITableViewDelegate, UITableViewDataSource
 //    }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! DeviceSelectCell
-//        cell.backgroundColor = R.Color.warmGrey
-//        cell.contentView.frame = cell.contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-//        cell.layer.shadowColor = UIColor.black.cgColor
-//        cell.layer.shadowOpacity = 0.8
-//        cell.layer.shadowOffset = CGSize(width: 1.7, height: 2.9)
-//        cell.layer.shadowRadius = 10
-        
-//        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).cgPath
-        
-        cell.btnDeviceManage.addTarget(self, action: #selector(deviceManageAction(sender:)), for: .touchUpInside)
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.Nib.DeviceSelectCell.identifier, for: indexPath) as! DeviceSelectCell
+
+        cell.delegate = self
         let data = dataList[indexPath.section]
         
         // 사용자 A? or nil
@@ -96,6 +85,7 @@ extension DeviceSelectViewController: UITableViewDelegate, UITableViewDataSource
         if let connectedString = data.isConnectedString, data.isConnected {
             cell.lblConnectState.text = connectedString
             cell.lblDeviceName.text = data.deviceModelName
+            
         } else {
             cell.lblConnectState.isHidden = true
             cell.lblDeviceModelName.isHidden = true
@@ -128,9 +118,22 @@ extension DeviceSelectViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+         
 
         
     }
 
+}
+
+extension DeviceSelectViewController:DeviceSelectViewManageDelegate {
+    func DeviceAddButtonPressed(with cell: UITableViewCell) {
+        guard let indexpath = tvList.indexPath(for: cell) else { return }
+        
+        if dataList[indexpath.section].isConnected {
+            // 기기해제 시나리오
+        } else {
+            // 기기등록 시나리오
+            self.navigationController?.pushViewController(R.Storyboard.pairngModeView.instance(), animated: true)
+        }
+    }
 }

@@ -14,7 +14,7 @@
 //
 
 import UIKit
-
+import Resource
 
 public enum ScanViewDictionrayKey{
     case deviceName

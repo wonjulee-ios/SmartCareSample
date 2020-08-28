@@ -16,10 +16,15 @@ class BpUserSelectViewController: UIViewController {
     @IBOutlet weak var btnSave: UIButton!
     let cellHeight:CGFloat = 50
     var userTypeList:[BpUserSelectDataModel]!
-    
-    struct BpUserSelectDataModel {
+    public var selectFinishClosure: ((Any) -> Void)?
+    class BpUserSelectDataModel {
         var isSelected:Bool
         let userType:String
+        
+        init(isSelected:Bool, userType:String) {
+            self.isSelected = isSelected
+            self.userType = userType
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +38,8 @@ class BpUserSelectViewController: UIViewController {
         
         let nib = R.Nib.BpUserSelectCell.instance()
         tvList.register(nib, forCellReuseIdentifier: R.Nib.BpUserSelectCell.identifier)
-        
+        tvList.delegate = self
+        tvList.dataSource = self
         
         // Do any additional setup after loading the view.
     }
@@ -50,7 +56,9 @@ class BpUserSelectViewController: UIViewController {
     */
     @IBAction func onSave(_ sender: Any) {
         if let selectedUserType = userTypeList.filter{$0.isSelected}.last {
-            print(selectedUserType)
+            if let closure = selectFinishClosure{
+                closure(selectedUserType.userType)
+            }
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -76,13 +84,23 @@ extension BpUserSelectViewController:UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: R.Nib.BpUserSelectCell.identifier, for: indexPath) as! BpUserSelectCell
         cell.lblUserType.text = userTypeList[indexPath.row].userType
-        cell.imgCheck.image = userTypeList[indexPath.row].isSelected == true ? R.Image.btnMeasureChoicePressed : R.Image.btnMeasureChoice
+        if userTypeList[indexPath.row].isSelected == true {
+            cell.imgCheck.image = R.Image.btnMeasureChoicePressed
+            cell.backgroundColor = R.Color.paleBlue
+        } else {
+            cell.imgCheck.image = R.Image.btnMeasureChoice
+            cell.backgroundColor = .white
+        }
         
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        userTypeList.filter{$0.isSelected}.compactMap{$0.isSelected = false}
         userTypeList[indexPath.row].isSelected.toggle()
-        tvList.reloadRows(at: [indexPath], with: .fade)
+        tvList.reloadData()
+//        tvList.reloadRows(at: [indexPath], with: .fade)
+        
         
     }
 }
