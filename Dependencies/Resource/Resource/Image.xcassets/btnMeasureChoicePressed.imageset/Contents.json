@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icPopupChoice.png",
+      "filename" : "btnMeasureChoicePressed.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icPopupChoice@2x.png",
+      "filename" : "btnMeasureChoicePressed@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icPopupChoice@3x.png",
+      "filename" : "btnMeasureChoicePressed@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
