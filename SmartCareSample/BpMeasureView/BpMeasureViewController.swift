@@ -21,6 +21,15 @@ class BpMeasureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "혈압 측정"
+        vOuter.layer.cornerRadius = 10
+        vOuter.layer.shadowColor = UIColor.lightGray.cgColor
+        vOuter.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        vOuter.layer.shadowOpacity = 0.5
+        vOuter.layer.cornerRadius = 10
+        vContent.layer.cornerRadius = 10
+        vContent.clipsToBounds = true
+        
         if deviceType == .AnD {
             imgTopDevice.image = R.Image.imgMeasureDevice1P2
             imgBottomDevice.image = R.Image.imgMeasureDevice1P1

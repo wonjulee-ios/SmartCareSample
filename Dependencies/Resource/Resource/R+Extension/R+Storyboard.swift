@@ -19,10 +19,6 @@ extension R.Storyboard {
     public static var bpUserSelectView: Storyboard { Storyboard(name: "BpUserSelecctViewController") }
     public static var bpMeasureView: Storyboard { Storyboard(name: "BpMeasureViewController") }
     
-    
-    
-    
-    
 }
 
 extension R {

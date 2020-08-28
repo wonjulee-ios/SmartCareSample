@@ -27,21 +27,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="786"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EsP-8n-Grm">
-                                                        <rect key="frame" x="51.5" y="0.0" width="279.5" height="786"/>
+                                                        <rect key="frame" x="50.5" y="0.0" width="281.5" height="786"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMeasureDevice1P2" translatesAutoresizingMaskIntoConstraints="NO" id="juT-0h-Q3o">
-                                                                <rect key="frame" x="0.0" y="0.0" width="279.5" height="341.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="281.5" height="341.5"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-1K-kVc">
-                                                                <rect key="frame" x="0.0" y="341.5" width="279.5" height="62.5"/>
+                                                                <rect key="frame" x="0.0" y="341.5" width="281.5" height="62.5"/>
                                                                 <string key="text">착용 후, “START” 버튼을 눌러주세요.
 (누르신 후, 35-40초 정도 기다려주세요.)</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMeasureDevice1P1" translatesAutoresizingMaskIntoConstraints="NO" id="cS4-c3-XhN">
-                                                                <rect key="frame" x="0.0" y="404" width="279.5" height="382"/>
+                                                                <rect key="frame" x="0.0" y="404" width="281.5" height="382"/>
                                                             </imageView>
                                                         </subviews>
                                                     </stackView>

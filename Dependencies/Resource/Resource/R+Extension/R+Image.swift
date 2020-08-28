@@ -25,14 +25,7 @@ public extension R.Image {
     static var imgMeasureDevice1P2: UIImage { .load(name: "imgMeasureDevice1P2") }
     static var imgMeasureDevice2P1: UIImage { .load(name: "imgMeasureDevice2P1") }
     static var imgMeasureDevice2P2: UIImage { .load(name: "imgMeasureDevice2P2") }
-    
-    
-    
-    
-    
-//    static var icPopupChoice: UIImage { .load(name: "icPopupChoice") }
-//    static var icPopupChoicePressed: UIImage { .load(name: "icPopupChoicePressed") }
-    
+
 }
 
 /// Extension.swift
