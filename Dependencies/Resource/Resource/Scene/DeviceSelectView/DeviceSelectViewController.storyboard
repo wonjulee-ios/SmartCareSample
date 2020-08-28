@@ -12,8 +12,7 @@
         <!--Device Select View Controller-->
         <scene sceneID="1hj-PC-xNI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C1K-fq-xkK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="DeviceSelectViewController" id="BOs-Ja-u3J" customClass="DeviceSelectViewController" customModule="Resource" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeviceSelectViewController" id="BOs-Ja-u3J" customClass="DeviceSelectViewController" customModule="SmartCareSample" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hcr-eA-X1D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +45,7 @@
                         <outlet property="tvList" destination="PBT-b2-VvX" id="syr-0f-BY7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C1K-fq-xkK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="293" y="111"/>
         </scene>

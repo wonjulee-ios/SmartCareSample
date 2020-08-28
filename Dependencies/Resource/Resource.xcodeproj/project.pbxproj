@@ -9,19 +9,11 @@
 /* Begin PBXBuildFile section */
 		580EBD1724F342C300F1EAEA /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580EBD1624F342C300F1EAEA /* Image.xcassets */; };
 		580EBD1924F3432800F1EAEA /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580EBD1824F3432800F1EAEA /* Color.xcassets */; };
-		580EBD1B24F3604A00F1EAEA /* DeviceSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580EBD1A24F3604A00F1EAEA /* DeviceSelectModel.swift */; };
 		583959E424F38E5A00220449 /* DeviceSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 583959E324F38E5A00220449 /* DeviceSelectViewController.storyboard */; };
-		583959EA24F4F89D00220449 /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583959E924F4F89D00220449 /* PairingViewController.swift */; };
 		583959EC24F4F8B100220449 /* PairingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 583959EB24F4F8B100220449 /* PairingViewController.storyboard */; };
-		583959EF24F4F94800220449 /* PairingTypeACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583959ED24F4F94800220449 /* PairingTypeACell.swift */; };
 		583959F024F4F94800220449 /* PairingTypeACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583959EE24F4F94800220449 /* PairingTypeACell.xib */; };
-		583959F324F5054700220449 /* PairingUserSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583959F124F5054700220449 /* PairingUserSelectCell.swift */; };
 		583959F424F5054700220449 /* PairingUserSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583959F224F5054700220449 /* PairingUserSelectCell.xib */; };
-		583959F824F5E19700220449 /* PairingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583959F724F5E19700220449 /* PairingViewModel.swift */; };
 		5840481A24EB562A00F36649 /* ScanViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5840481924EB562A00F36649 /* ScanViewCell.xib */; };
-		5840481C24EB564A00F36649 /* ScanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5840481B24EB564A00F36649 /* ScanViewCell.swift */; };
-		5840482124EB8BD000F36649 /* DeviceSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5840482024EB8BD000F36649 /* DeviceSelectViewController.swift */; };
-		5840482424EB8C3A00F36649 /* DeviceSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5840482224EB8C3A00F36649 /* DeviceSelectCell.swift */; };
 		5840482524EB8C3A00F36649 /* DeviceSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5840482324EB8C3A00F36649 /* DeviceSelectCell.xib */; };
 		58969C0124E6831800993C85 /* ScanViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58969C0024E6831800993C85 /* ScanViewController.storyboard */; };
 		58BC850624F88333008A5B0F /* BpUserSelecctViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BC850524F88333008A5B0F /* BpUserSelecctViewController.storyboard */; };
@@ -34,25 +26,16 @@
 		58E4FEED24E67E33005F2F1E /* R+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4FEEC24E67E33005F2F1E /* R+Image.swift */; };
 		58E4FEEF24E67E98005F2F1E /* R+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4FEEE24E67E98005F2F1E /* R+Color.swift */; };
 		58E4FEF124E67EB5005F2F1E /* R+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4FEF024E67EB5005F2F1E /* R+Storyboard.swift */; };
-		58E4FEF724E67F51005F2F1E /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4FEF624E67F51005F2F1E /* ScanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		580EBD1624F342C300F1EAEA /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		580EBD1824F3432800F1EAEA /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
-		580EBD1A24F3604A00F1EAEA /* DeviceSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectModel.swift; sourceTree = "<group>"; };
 		583959E324F38E5A00220449 /* DeviceSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeviceSelectViewController.storyboard; sourceTree = "<group>"; };
-		583959E924F4F89D00220449 /* PairingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
 		583959EB24F4F8B100220449 /* PairingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PairingViewController.storyboard; sourceTree = "<group>"; };
-		583959ED24F4F94800220449 /* PairingTypeACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingTypeACell.swift; sourceTree = "<group>"; };
 		583959EE24F4F94800220449 /* PairingTypeACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairingTypeACell.xib; sourceTree = "<group>"; };
-		583959F124F5054700220449 /* PairingUserSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingUserSelectCell.swift; sourceTree = "<group>"; };
 		583959F224F5054700220449 /* PairingUserSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairingUserSelectCell.xib; sourceTree = "<group>"; };
-		583959F724F5E19700220449 /* PairingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewModel.swift; sourceTree = "<group>"; };
 		5840481924EB562A00F36649 /* ScanViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanViewCell.xib; sourceTree = "<group>"; };
-		5840481B24EB564A00F36649 /* ScanViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewCell.swift; sourceTree = "<group>"; };
-		5840482024EB8BD000F36649 /* DeviceSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectViewController.swift; sourceTree = "<group>"; };
-		5840482224EB8C3A00F36649 /* DeviceSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectCell.swift; sourceTree = "<group>"; };
 		5840482324EB8C3A00F36649 /* DeviceSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceSelectCell.xib; sourceTree = "<group>"; };
 		58969C0024E6831800993C85 /* ScanViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanViewController.storyboard; sourceTree = "<group>"; };
 		58BC850524F88333008A5B0F /* BpUserSelecctViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BpUserSelecctViewController.storyboard; sourceTree = "<group>"; };
@@ -67,7 +50,6 @@
 		58E4FEEC24E67E33005F2F1E /* R+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R+Image.swift"; sourceTree = "<group>"; };
 		58E4FEEE24E67E98005F2F1E /* R+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R+Color.swift"; sourceTree = "<group>"; };
 		58E4FEF024E67EB5005F2F1E /* R+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R+Storyboard.swift"; sourceTree = "<group>"; };
-		58E4FEF624E67F51005F2F1E /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +66,8 @@
 		583959E824F4F82800220449 /* PairingView */ = {
 			isa = PBXGroup;
 			children = (
-				583959E924F4F89D00220449 /* PairingViewController.swift */,
 				583959EB24F4F8B100220449 /* PairingViewController.storyboard */,
-				583959F724F5E19700220449 /* PairingViewModel.swift */,
-				583959ED24F4F94800220449 /* PairingTypeACell.swift */,
 				583959EE24F4F94800220449 /* PairingTypeACell.xib */,
-				583959F124F5054700220449 /* PairingUserSelectCell.swift */,
 				583959F224F5054700220449 /* PairingUserSelectCell.xib */,
 			);
 			path = PairingView;
@@ -99,10 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				583959E324F38E5A00220449 /* DeviceSelectViewController.storyboard */,
-				5840482024EB8BD000F36649 /* DeviceSelectViewController.swift */,
-				5840482224EB8C3A00F36649 /* DeviceSelectCell.swift */,
 				5840482324EB8C3A00F36649 /* DeviceSelectCell.xib */,
-				580EBD1A24F3604A00F1EAEA /* DeviceSelectModel.swift */,
 			);
 			path = DeviceSelectView;
 			sourceTree = "<group>";
@@ -182,9 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				58969C0024E6831800993C85 /* ScanViewController.storyboard */,
-				58E4FEF624E67F51005F2F1E /* ScanViewController.swift */,
 				5840481924EB562A00F36649 /* ScanViewCell.xib */,
-				5840481B24EB564A00F36649 /* ScanViewCell.swift */,
 			);
 			path = ScanView;
 			sourceTree = "<group>";
@@ -283,18 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				58E4FEED24E67E33005F2F1E /* R+Image.swift in Sources */,
-				5840482424EB8C3A00F36649 /* DeviceSelectCell.swift in Sources */,
-				583959EF24F4F94800220449 /* PairingTypeACell.swift in Sources */,
-				5840481C24EB564A00F36649 /* ScanViewCell.swift in Sources */,
 				58E4FEEF24E67E98005F2F1E /* R+Color.swift in Sources */,
-				583959EA24F4F89D00220449 /* PairingViewController.swift in Sources */,
-				58E4FEF724E67F51005F2F1E /* ScanViewController.swift in Sources */,
-				583959F824F5E19700220449 /* PairingViewModel.swift in Sources */,
 				58E4FEEA24E67DC7005F2F1E /* R.swift in Sources */,
-				5840482124EB8BD000F36649 /* DeviceSelectViewController.swift in Sources */,
 				58E3A45724F7560B00DAA401 /* R+Nib.swift in Sources */,
-				583959F324F5054700220449 /* PairingUserSelectCell.swift in Sources */,
-				580EBD1B24F3604A00F1EAEA /* DeviceSelectModel.swift in Sources */,
 				58E4FEF124E67EB5005F2F1E /* R+Storyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

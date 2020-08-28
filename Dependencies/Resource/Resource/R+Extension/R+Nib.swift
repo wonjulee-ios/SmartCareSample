@@ -11,8 +11,13 @@ import UIKit
 extension R.Nib {
    
     public typealias Nib = R.Nib
+    
     public static var BpDataSyncCell:Nib{ Nib(name: "BpDataSyncCell") }
     public static var BpUserSelectCell:Nib{ Nib(name: "BpUserSelectCell") }
+    public static var PairingTypeACell:Nib{ Nib(name: "PairingTypeACell") }
+    public static var PairingUserSelectCell:Nib{ Nib(name: "PairingUserSelectCell") }
+    public static var DeviceSelectCell:Nib{ Nib(name: "DeviceSelectCell") }
+    public static var ScanViewCell:Nib{ Nib(name: "ScanViewCell") }
     
 }
 

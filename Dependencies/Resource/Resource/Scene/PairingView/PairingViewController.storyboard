@@ -11,7 +11,7 @@
         <!--Pairing View Controller-->
         <scene sceneID="zGJ-Un-Qzj">
             <objects>
-                <viewController storyboardIdentifier="PairingViewController" id="Ieo-ZG-Q6h" customClass="PairingViewController" customModule="Resource" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PairingViewController" id="Ieo-ZG-Q6h" customClass="PairingViewController" customModule="SmartCareSample" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cef-dv-66I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                         <viewLayoutGuide key="safeArea" id="bVz-pn-JiR"/>
                     </view>
                     <connections>
-                        <outlet property="tvList" destination="dAf-jr-Eug" id="Gum-KO-MFf"/>
+                        <outlet property="tvList" destination="dAf-jr-Eug" id="uAP-z6-O1G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioD-UW-bUO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
