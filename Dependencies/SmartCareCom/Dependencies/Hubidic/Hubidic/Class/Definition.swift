@@ -86,6 +86,7 @@ public protocol HubidicDelegate:class {
 public enum PeripheralDictionaryKey {
     case peripheral
     case localName
+    case rssi
 }
 public enum HubidicError:Error {
     case noDeviceInfo

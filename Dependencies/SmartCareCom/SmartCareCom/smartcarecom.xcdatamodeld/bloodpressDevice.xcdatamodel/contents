@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BloodpressData" representedClassName=".Boodpress" syncable="YES">
+        <attribute name="hr" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="idx" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="max" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="measure_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="min" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sync_yn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <entity name="BloodpressDevice" representedClassName=".BloodpressDevice" syncable="YES">
         <attribute name="connected" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="deviceName" optional="YES" attributeType="String"/>
@@ -9,15 +17,8 @@
         <attribute name="usertype" optional="YES" attributeType="String"/>
         <attribute name="uuidString" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Boodpress" representedClassName=".Boodpress" syncable="YES">
-        <attribute name="hr" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="max" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="measure_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="min" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="sync_yn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-    </entity>
     <elements>
         <element name="BloodpressDevice" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="Boodpress" positionX="-63" positionY="36" width="128" height="118"/>
+        <element name="BloodpressData" positionX="-63" positionY="36" width="128" height="133"/>
     </elements>
 </model>

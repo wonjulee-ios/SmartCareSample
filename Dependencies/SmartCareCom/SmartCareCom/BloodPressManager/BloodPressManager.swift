@@ -10,13 +10,53 @@ import Foundation
 import Hubidic
 import CoreData
 
-//import CoreBluetooth
+import CoreBluetooth
 /**
  구현단계에서 사용할 델리게이트
 
 */
-public protocol BloodPressManageDelegate:AnyObject {
+extension SmartCareCom {
+    public enum ScanViewDictionrayKey{
+        case deviceName
+        case rssi
+        case uuidSrting
+    }
+    public struct BloodPressData{
+        public let measureDt:Date
+        public let max:Int
+        public let min:Int
+        public let hr:Int
+        public init(measureDt:Date, max:Int, min:Int, hr:Int){
+            self.measureDt = measureDt
+            self.max = max
+            self.min = min
+            self.hr = hr
+        }
+        
+    }
     
+    public enum BloodPressManagerState{
+        
+        case scanning
+        case scanFinished
+        case connected
+        case connecting
+        case connectFailed
+        case disconecting
+        case disconected
+        
+    }
+
+
+}
+
+
+public protocol BloodPressManageDelegate:AnyObject {
+    func updated(state: SmartCareCom.BloodPressManagerState, data: String?)
+    
+    func scannedPeripherals(scannedPeripherals: [[SmartCareCom.ScanViewDictionrayKey : Any]])
+    
+    func sync(with bpData:[SmartCareCom.BloodPressData])
 }
 public protocol BloodPressDatabaseUpdatable:AnyObject {
      func updateData(connected:Bool?, deviceName: String, fwver:String?, password:String?, selected:Bool?, usertype:String?, uuidString:String?)
@@ -59,7 +99,7 @@ extension DataController:BloodPressDatabaseUpdatable {
 }
 public class BloodPressManager:DeviceManaging{
     
-    weak var delegate:BloodPressManageDelegate?
+    public weak var delegate:BloodPressManageDelegate?
     public var selectedDevice: BleDeviceDataSource?
     public let dataController:BloodPressDatabaseUpdatable & DataControllerDataSource
     /**
@@ -97,32 +137,48 @@ public class BloodPressManager:DeviceManaging{
         return dataController.fetch(request: request)
     }
     
-    @discardableResult
-    public func aa(){
-        
-    }
-    
     
 }
 //MARK: Hubidic Delegate
 extension BloodPressManager:HubidicDelegate{
     public func updated(state: HubidicState, data: String?, error: Error?) {
-        print(state)
+        
+        switch state {
+        case .connectFailed:
+            delegate?.updated(state: .connectFailed, data: data)
+        default:
+            break
+        }
+        
     }
     
     public func hubidicScannedPeripherals(scannedPeripherals: [[PeripheralDictionaryKey : Any]]) {
-        print(scannedPeripherals)
+        
+        var dictArray:[[SmartCareCom.ScanViewDictionrayKey:Any]] = []
+        for i in scannedPeripherals {
+            guard let object:CBPeripheral = i[.peripheral] as? CBPeripheral else { return }
+            guard let localName:String = i[.localName] as? String else { return }
+            guard let rssi:NSNumber = i[.rssi] as? NSNumber else { return }
+            let dict:[SmartCareCom.ScanViewDictionrayKey:Any] = [.deviceName:localName,.uuidSrting:object.identifier.uuidString, .rssi:rssi.stringValue]
+            dictArray.append(dict)
+        }
+        delegate?.scannedPeripherals(scannedPeripherals: dictArray)
     }
+    
     
 }
 //MARK: HubidicDataManager Delegate
 extension BloodPressManager:HubidicDataSyncDelegate{
+    
     public func HubidicDeviceInfo(info: HubidicDevice) {
         dataController.updateData(connected: true, deviceName: "Hubidic", fwver: info.firmwareVersion, password: info.password, selected: true, usertype: "\(info.selectedUserType.self)", uuidString: info.uuid)
     }
     
     public func sync(dataList: [BloodPressData]) {
+        
         HubidicDebugManager.log(dataList)
+        let data:[SmartCareCom.BloodPressData] = dataList.map{SmartCareCom.BloodPressData(measureDt: $0.measureDt, max: $0.max, min: $0.min, hr: $0.hr)}
+        delegate?.sync(with: data)
     }
 }
 
@@ -147,7 +203,7 @@ extension BloodPressManager:BloodPressDeviceSelectable{
             
             let object = Hubidic(deviceInfo: info)
             object.delegate = self //HubidicDelegate
-            object.bpDataManager.delegate = self //HubidicDataSyncDelegate
+//            object.bpDataManager.delegate = self //HubidicDataSyncDelegate
             selectedDevice = object
             
         } else {

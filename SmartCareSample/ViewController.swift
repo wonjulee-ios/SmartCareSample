@@ -10,11 +10,26 @@ import UIKit
 import SmartCareCom
 import Resource
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,BloodPressManageDelegate {
+    func sync(with bpData: [SmartCareCom.BloodPressData]) {
+        
+    }
+    
+    func updated(state: SmartCareCom.BloodPressManagerState, data: String?) {
+        
+    }
+    
+    func scannedPeripherals(scannedPeripherals: [[SmartCareCom.ScanViewDictionrayKey : Any]]) {
+        
+    }
+    
+    
+    
 
     @IBOutlet weak var tvList: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Do any additional setup after loading the view.
         
@@ -35,10 +50,5 @@ class ViewController: UIViewController {
         vc.deviceType = .AnD
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-}
-
-
-extension ViewController : BloodPressManageDelegate{
     
 }

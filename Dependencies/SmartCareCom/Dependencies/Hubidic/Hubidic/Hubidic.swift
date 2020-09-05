@@ -571,7 +571,7 @@ extension Hubidic: CBCentralManagerDelegate {
             
 //            isPairingMode = localName[localName.startIndex] == "0" ? false : true
             print("✅ isPairingMode \(isPairingMode)")
-            let dict : [PeripheralDictionaryKey : Any] = [.peripheral : peripheral, .localName : localName]
+            let dict : [PeripheralDictionaryKey : Any] = [.peripheral : peripheral, .localName : localName, .rssi:RSSI]
             
             scannedDeviceList.append(dict)
             

@@ -14,7 +14,7 @@ class DeviceSelectViewController: UIViewController {
     @IBOutlet weak var tvList: UITableView!
     var dataList:[DeviceSelectDataModel]!
     let cellIdentifier:String = "DeviceSelectCell"
-    
+    weak var coordinator:DeviceSelectViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "혈압기기 선택"
@@ -131,9 +131,18 @@ extension DeviceSelectViewController:DeviceSelectViewManageDelegate {
         
         if dataList[indexpath.section].isConnected {
             // 기기해제 시나리오
+            coordinator?.removeDevice(index: indexpath.section)
         } else {
             // 기기등록 시나리오
-            self.navigationController?.pushViewController(R.Storyboard.pairngModeView.instance(), animated: true)
+            if dataList[indexpath.section].deviceModelName == "Hubidic"{
+                //bpManager.select(to: .Hubidic)
+                
+            } else {
+                //bpManager.select(to: .AnD)
+            }
+            //bpManager.selectedDevice.bleScan()
+            coordinator?.tryConnecting(index: indexpath.section)
+//            self.navigationController?.pushViewController(R.Storyboard.pairngModeView.instance(), animated: true)
         }
     }
 }

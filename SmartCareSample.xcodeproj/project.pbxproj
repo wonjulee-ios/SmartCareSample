@@ -31,6 +31,7 @@
 		58E3A44C24F744C300DAA401 /* BpDataSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3A44624F7434800DAA401 /* BpDataSyncViewController.swift */; };
 		58E3A44D24F744C700DAA401 /* BpDataSyncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3A44824F7434800DAA401 /* BpDataSyncCell.swift */; };
 		58E3A45024F744D300DAA401 /* BpDataSyncDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3A44A24F7434800DAA401 /* BpDataSyncDataModel.swift */; };
+		58FE60B924FE238F0018BC88 /* SmartcareCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FE60B824FE238F0018BC88 /* SmartcareCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		58E3A44624F7434800DAA401 /* BpDataSyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpDataSyncViewController.swift; sourceTree = "<group>"; };
 		58E3A44824F7434800DAA401 /* BpDataSyncCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpDataSyncCell.swift; sourceTree = "<group>"; };
 		58E3A44A24F7434800DAA401 /* BpDataSyncDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpDataSyncDataModel.swift; sourceTree = "<group>"; };
+		58FE60B824FE238F0018BC88 /* SmartcareCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartcareCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		58CD2AE324D3EBE300072E2A /* SmartCareSample */ = {
 			isa = PBXGroup;
 			children = (
+				58FE60B524FE237E0018BC88 /* SmartCareCoordinator */,
 				584B245624F8E0A30073D359 /* BpMeasureView */,
 				58BC851224F8C248008A5B0F /* ScanView */,
 				58BC851124F8C242008A5B0F /* DeviceSelectView */,
@@ -231,6 +234,14 @@
 				58E3A44A24F7434800DAA401 /* BpDataSyncDataModel.swift */,
 			);
 			path = BpDataSyncView;
+			sourceTree = "<group>";
+		};
+		58FE60B524FE237E0018BC88 /* SmartCareCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				58FE60B824FE238F0018BC88 /* SmartcareCoordinator.swift */,
+			);
+			path = SmartCareCoordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +350,7 @@
 				58BC852024F8C297008A5B0F /* DeviceSelectModel.swift in Sources */,
 				58BC851924F8C25A008A5B0F /* PairingViewModel.swift in Sources */,
 				58B5602524D79CDE006FA022 /* ManageBleDeviceViewController.swift in Sources */,
+				58FE60B924FE238F0018BC88 /* SmartcareCoordinator.swift in Sources */,
 				58CD2AE524D3EBE300072E2A /* AppDelegate.swift in Sources */,
 				58B5602A24D7AADA006FA022 /* SelectBleDeviceViewController.swift in Sources */,
 				58BC851A24F8C25A008A5B0F /* PairingViewController.swift in Sources */,

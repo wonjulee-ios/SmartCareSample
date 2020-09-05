@@ -53,7 +53,7 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
         
         let deviceSelectView = R.Storyboard.deviceSelectView.instance()
         
-//        let scanView: ScanViewController = R.Storyboard.scanView.instance()
+        let scanView: ScanViewController = R.Storyboard.scanView.instance()
 //        if dataList[indexPath.section] == "A&D" {
 //            SmartCareCom.shared.bpManager.select(to: .AnD)
 //        } else {
@@ -69,10 +69,10 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
 //            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
 ////            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
 //        }
-//        scanView.scanSelectUUIDClosure = {[weak scanView] a in
-//
-//
-//        }
+        scanView.scanSelectUUIDClosure = {[weak scanView] a in
+            
+
+        }
         
         self.navigationController?.pushViewController(deviceSelectView, animated: true)
     }

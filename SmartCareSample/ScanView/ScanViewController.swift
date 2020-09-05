@@ -15,19 +15,15 @@
 
 import UIKit
 import Resource
+import SmartCareCom
 
-public enum ScanViewDictionrayKey{
-    case deviceName
-    case rssi
-    case uuidSrting
-}
 public class ScanViewController: UIViewController {
     @IBOutlet public weak var tvList: UITableView!
     @IBOutlet public weak var btnScan: UIButton!
     public var scanStartClosure: (() -> Void)?
     public var scanFinishClosure: (() -> Void)?
     public var scanSelectUUIDClosure: ((String) -> Void)?
-    public var scanList:[[ScanViewDictionrayKey:String]] = [] {
+    public var scanList:[[SmartCareCom.ScanViewDictionrayKey:String]] = [] {
         willSet {
             tvList.reloadData()
         }
