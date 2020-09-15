@@ -19,5 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        let items = urlComponents?.queryItems
+        
+        let alert = UIAlertController(title: items?.first?.name ?? "No Data", message: items?.first?.value ?? "No Data", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "ok", style: .default, handler: nil)
+        alert.addAction(ok)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        return true
+    }
 }
 

@@ -18,6 +18,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		58780BBD2506340F004E22BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58780BB92506340E004E22BD /* andbp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58780BAE2506340E004E22BD;
+			remoteInfo = andbp;
+		};
 		58CD2B5B24D3EDA100072E2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 58CD2B5724D3ED9F00072E2A /* Hubidic.xcodeproj */;
@@ -39,6 +46,7 @@
 		582981FF24E621D400A53482 /* BloodpressDevice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BloodpressDevice+CoreDataProperties.swift"; path = "SmartCareCom/BloodPressManager/BloodpressDevice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5854099A24E3A5C000DFC6D7 /* Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		5854099F24E3DC2C00DFC6D7 /* BloodPressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPressManager.swift; sourceTree = "<group>"; };
+		58780BB92506340E004E22BD /* andbp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = andbp.xcodeproj; path = andbp/andbp.xcodeproj; sourceTree = "<group>"; };
 		58AF0CA724E4FE2F0062DB88 /* bloodpressDevice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bloodpressDevice.xcdatamodel; sourceTree = "<group>"; };
 		58AF0CB224E51FB50062DB88 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		58B5602224D78C4A006FA022 /* SmartCareCom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCareCom.swift; sourceTree = "<group>"; };
@@ -89,6 +97,14 @@
 			path = BodyWeightManager;
 			sourceTree = "<group>";
 		};
+		58780BBA2506340E004E22BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58780BBE2506340F004E22BD /* andbp.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		58AF0CB124E51FA60062DB88 /* DataController */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +151,7 @@
 		58CD2B4124D3ED8600072E2A /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				58780BB92506340E004E22BD /* andbp.xcodeproj */,
 				58CD2B5724D3ED9F00072E2A /* Hubidic.xcodeproj */,
 			);
 			path = Dependencies;
@@ -209,6 +226,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 58780BBA2506340E004E22BD /* Products */;
+					ProjectRef = 58780BB92506340E004E22BD /* andbp.xcodeproj */;
+				},
+				{
 					ProductGroup = 58CD2B5824D3ED9F00072E2A /* Products */;
 					ProjectRef = 58CD2B5724D3ED9F00072E2A /* Hubidic.xcodeproj */;
 				},
@@ -221,6 +242,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		58780BBE2506340F004E22BD /* andbp.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = andbp.framework;
+			remoteRef = 58780BBD2506340F004E22BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		58CD2B5C24D3EDA100072E2A /* Hubidic.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
