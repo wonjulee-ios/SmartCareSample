@@ -46,6 +46,7 @@ extension AppCoordinator: DeviceSelectViewControllerDelegate{
     func tryConnecting(index: Int) {
         if index == 0 {
             SmartCareCom.shared.bpManager.select(to: .Hubidic)
+            
             let vc:PairingViewController =  R.Storyboard.pairngModeView.instance()
             
             

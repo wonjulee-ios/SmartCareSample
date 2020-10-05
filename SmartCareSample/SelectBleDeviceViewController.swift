@@ -60,17 +60,16 @@ extension SelectBleDeviceViewController : UITableViewDelegate, UITableViewDataSo
 //            SmartCareCom.shared.bpManager.select(to: .Hubidic)
 //        }
 //
-//        scanView.scanStartClosure = { [unowned scanView] in
-//            print("start")
-//            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
-//        }
-//        scanView.scanFinishClosure = { [unowned scanView] in
-//            print("finish")
+        scanView.scanStartClosure = { [unowned scanView] in
+            print("start")
+            SmartCareCom.shared.bpManager.selectedDevice?.bleScanDevice()
+        }
+        scanView.scanFinishClosure = { [unowned scanView] in
+            print("finish")
+            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
 //            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
-////            SmartCareCom.shared.bpManager.selectedDevice?.bleStopScan()
-//        }
+        }
         scanView.scanSelectUUIDClosure = {[weak scanView] a in
-            
 
         }
         

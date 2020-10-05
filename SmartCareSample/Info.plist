@@ -25,7 +25,7 @@
 			<string>com.gmate.SmartCareSample</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sampleapp</string>
+				<string>gmatepremium</string>
 			</array>
 		</dict>
 	</array>

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
         let items = urlComponents?.queryItems
         
-        let alert = UIAlertController(title: items?.first?.name ?? "No Data", message: items?.first?.value ?? "No Data", preferredStyle: .alert)
+        let alert = UIAlertController(title: items?.first?.name ?? "No Data", message: "\(items?.first?.value?.count)" ?? "No Data", preferredStyle: .alert)
         let ok = UIAlertAction(title: "ok", style: .default, handler: nil)
         alert.addAction(ok)
         
